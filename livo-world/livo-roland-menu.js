@@ -2,6 +2,8 @@
   const ROLAND_FRAME_SRC = "figma/tilia/pin-frame-roland.svg";
   const rolandAtRestaurant = new URLSearchParams(window.location.search).get("roland") === "restaurant";
   let toastTimer = 0;
+  let restaurantPinTemplate = null;
+  let restaurantPinHost = null;
 
   function applyCharacterStates(root = document) {
     const selector = '[role="img"][aria-label*="："]';
@@ -10,7 +12,7 @@
       ...(root.querySelectorAll?.(selector) || [])
     ];
     pins.forEach((pin) => {
-      const frame = pin.querySelector('img[src*="pin-frame-char.svg"]');
+      const frame = pin.querySelector('img[src*="pin-frame-char.svg"], img[src*="pin-frame-roland.svg"]');
       if (!frame) return;
       if (pin.getAttribute("aria-label")?.startsWith("罗兰：")) {
         frame.src = ROLAND_FRAME_SRC;
@@ -20,6 +22,28 @@
       }
       pin.classList.add("livo-disabled-character-pin");
     });
+  }
+
+  function ensureRestaurantRolandPin() {
+    if (!rolandAtRestaurant) return;
+    const persistentPin = document.querySelector('[data-livo-restaurant-roland="true"]');
+    if (persistentPin) {
+      applyCharacterStates(persistentPin);
+      return;
+    }
+    const sourcePin = document.querySelector('[role="img"][aria-label^="罗兰："]:not([data-livo-restaurant-roland])');
+    if (sourcePin) {
+      restaurantPinTemplate = sourcePin.cloneNode(true);
+      restaurantPinHost = sourcePin.parentElement;
+      sourcePin.classList.add("livo-roland-source-hidden");
+    }
+    if (!restaurantPinTemplate || !restaurantPinHost?.isConnected) return;
+    const fixedPin = restaurantPinTemplate.cloneNode(true);
+    fixedPin.dataset.livoRestaurantRoland = "true";
+    fixedPin.classList.remove("livo-roland-source-hidden");
+    fixedPin.classList.add("livo-roland-at-restaurant");
+    restaurantPinHost.append(fixedPin);
+    applyCharacterStates(fixedPin);
   }
 
   function rolandPinFromEvent(event) {
@@ -76,11 +100,14 @@
   }, true);
 
   applyCharacterStates();
+  ensureRestaurantRolandPin();
   new MutationObserver((records) => {
     records.forEach((record) => {
       record.addedNodes.forEach((node) => {
         if (node.nodeType === Node.ELEMENT_NODE) applyCharacterStates(node);
       });
     });
+    ensureRestaurantRolandPin();
   }).observe(document.body, { childList: true, subtree: true });
+  if (rolandAtRestaurant) window.setInterval(ensureRestaurantRolandPin, 500);
 })();

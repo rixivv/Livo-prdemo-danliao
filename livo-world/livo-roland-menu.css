@@ -10,6 +10,14 @@
 [role="img"][aria-label^="罗兰："].livo-roland-at-restaurant {
   left: 77.1054% !important;
   top: 57.5% !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+[role="img"][aria-label^="罗兰："].livo-roland-source-hidden {
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 [role="img"][aria-label*="："]:not([aria-label^="罗兰："]) {
