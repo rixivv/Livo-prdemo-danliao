@@ -115,6 +115,7 @@ let rolandDepartureTimer;
 let rolandAwayTimer;
 let rolandUserIdleTimer;
 let homeChatTypewriterTimer;
+let deepFeelingTypewriterTimer;
 let joyHeartsTimer;
 let returnVisitMode = "off";
 let returnGreetingTextStarted = false;
@@ -887,12 +888,36 @@ function showHomeAwayState() {
   }
 }
 
-function showHomeDeepFeeling() {
+function showHomeDeepFeeling(onComplete) {
+  window.clearTimeout(deepFeelingTypewriterTimer);
   if (homeDeepFeelingCard) homeDeepFeelingCard.hidden = false;
   homeScreen?.classList.add("deepfeeling-active");
+  const textElement = homeDeepFeelingCard?.querySelector("p");
+  if (!textElement) {
+    onComplete?.();
+    return;
+  }
+  const fullText = textElement.dataset.fullText || textElement.textContent.trim();
+  textElement.dataset.fullText = fullText;
+  textElement.textContent = "";
+  const characters = Array.from(fullText);
+  let index = 0;
+  const typeNextCharacter = () => {
+    textElement.textContent += characters[index] || "";
+    index += 1;
+    if (index >= characters.length) {
+      onComplete?.();
+      return;
+    }
+    const lastCharacter = characters[index - 1];
+    const delay = /[，。！？、]/u.test(lastCharacter) ? 110 : 36;
+    deepFeelingTypewriterTimer = window.setTimeout(typeNextCharacter, delay);
+  };
+  deepFeelingTypewriterTimer = window.setTimeout(typeNextCharacter, 180);
 }
 
 function hideHomeDeepFeeling() {
+  window.clearTimeout(deepFeelingTypewriterTimer);
   if (homeDeepFeelingCard) homeDeepFeelingCard.hidden = true;
   homeScreen?.classList.remove("deepfeeling-active");
 }
@@ -1806,11 +1831,12 @@ homeChatForm?.addEventListener("submit", (event) => {
     };
 
     if (reply.departureVideo) {
-      showHomeDeepFeeling();
-      rolandDepartureTimer = window.setTimeout(() => {
-        hideHomeDeepFeeling();
-        deliverRolandReply();
-      }, 2600);
+      showHomeDeepFeeling(() => {
+        rolandDepartureTimer = window.setTimeout(() => {
+          hideHomeDeepFeeling();
+          deliverRolandReply();
+        }, 600);
+      });
       return;
     }
     deliverRolandReply();
