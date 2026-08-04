@@ -1852,7 +1852,8 @@ homeAwayFind?.addEventListener("click", () => {
   window.clearTimeout(rolandDepartureTimer);
   window.clearTimeout(rolandAwayTimer);
   const mapUrl = new URL("./livo-world/tilia/map/index.html", window.location.href);
-  mapUrl.searchParams.set("roland", "restaurant");
+  mapUrl.searchParams.delete("roland");
+  mapUrl.hash = "roland=restaurant";
   window.location.assign(mapUrl.href);
 });
 

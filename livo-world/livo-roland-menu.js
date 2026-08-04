@@ -1,6 +1,15 @@
 (() => {
+  const legacyMapParams = new URLSearchParams(window.location.search);
+  if (legacyMapParams.get("roland") === "restaurant" && window.location.hash !== "#roland=restaurant") {
+    const cleanMapUrl = new URL(window.location.href);
+    cleanMapUrl.searchParams.delete("roland");
+    cleanMapUrl.hash = "roland=restaurant";
+    window.location.replace(cleanMapUrl.href);
+    return;
+  }
   const ROLAND_FRAME_SRC = "figma/tilia/pin-frame-roland.svg";
-  const rolandAtRestaurant = new URLSearchParams(window.location.search).get("roland") === "restaurant";
+  const mapHashParams = new URLSearchParams(window.location.hash.slice(1));
+  const rolandAtRestaurant = mapHashParams.get("roland") === "restaurant";
   let toastTimer = 0;
   let restaurantPinTemplate = null;
   let restaurantPinHost = null;
