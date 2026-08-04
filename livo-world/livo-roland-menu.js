@@ -1,5 +1,6 @@
 (() => {
   const ROLAND_FRAME_SRC = "figma/tilia/pin-frame-roland.svg";
+  const rolandAtRestaurant = new URLSearchParams(window.location.search).get("roland") === "restaurant";
   let toastTimer = 0;
 
   function applyCharacterStates(root = document) {
@@ -14,6 +15,7 @@
       if (pin.getAttribute("aria-label")?.startsWith("罗兰：")) {
         frame.src = ROLAND_FRAME_SRC;
         pin.classList.remove("livo-disabled-character-pin");
+        pin.classList.toggle("livo-roland-at-restaurant", rolandAtRestaurant);
         return;
       }
       pin.classList.add("livo-disabled-character-pin");
@@ -56,6 +58,7 @@
     event.preventDefault();
     event.stopPropagation();
     const chatUrl = new URL("../../../index.html", window.location.href);
+    if (rolandAtRestaurant) chatUrl.searchParams.set("location", "restaurant");
     window.location.assign(chatUrl.href);
   }
 

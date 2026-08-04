@@ -1825,20 +1825,13 @@ homeAwayFind?.addEventListener("click", () => {
   window.clearTimeout(homeChatReplyTimer);
   window.clearTimeout(rolandDepartureTimer);
   window.clearTimeout(rolandAwayTimer);
-  hideHomeDeepFeeling();
-  stopRolandDepartureVideo();
-  clearRolandDepartureFrame();
-  homeScreen?.classList.remove(
-    "chat-active",
-    "role-hurt",
-    "role-leaving",
-    "role-away",
-    "departure-video-active",
-    "departure-video-transitioning"
-  );
-  if (homeAwayState) homeAwayState.hidden = true;
-  if (homeAwayMessages) homeAwayMessages.replaceChildren();
-  awayEchoIndex = 0;
+  const mapUrl = new URL("./livo-world/tilia/map/index.html", window.location.href);
+  mapUrl.searchParams.set("roland", "restaurant");
+  window.location.assign(mapUrl.href);
+});
+
+const chatEntryParams = new URLSearchParams(window.location.search);
+if (chatEntryParams.get("location") === "restaurant") {
   if (homeLocationLabel) homeLocationLabel.textContent = "餐车";
   if (homeChatThread) {
     homeChatThread.innerHTML = `
@@ -1853,17 +1846,7 @@ homeAwayFind?.addEventListener("click", () => {
         </div>
       </div>`;
   }
-  if (homeChatInput) {
-    homeChatInput.disabled = false;
-    homeChatInput.value = "";
-    homeChatInput.placeholder = "和罗兰开始冒险";
-  }
-  setRolandMood("平静");
-  rolandMicroexpressionVideo?.play().catch(() => {});
-  resizeHomeChatInput();
-  homeChatInput?.focus();
-  showHomeChatToast("已在餐车找到罗兰");
-});
+}
 
 departureDemoTrigger?.addEventListener("click", () => {
   window.clearTimeout(rolandDepartureTimer);

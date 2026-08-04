@@ -7,6 +7,11 @@
   pointer-events: none !important;
 }
 
+[role="img"][aria-label^="罗兰："].livo-roland-at-restaurant {
+  left: 77.1054% !important;
+  top: 57.5% !important;
+}
+
 [role="img"][aria-label*="："]:not([aria-label^="罗兰："]) {
   pointer-events: auto !important;
   filter: brightness(0.78) saturate(0.82) !important;
