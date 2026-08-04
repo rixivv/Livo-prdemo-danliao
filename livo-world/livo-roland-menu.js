@@ -1,4 +1,15 @@
 (() => {
+  const ensureMapBase = () => {
+    if (document.querySelector("base")) return;
+    const base = document.createElement("base");
+    base.href = "../../";
+    document.head.prepend(base);
+  };
+  ensureMapBase();
+  new MutationObserver(ensureMapBase).observe(document.documentElement, {
+    childList: true,
+    subtree: true
+  });
   const legacyMapParams = new URLSearchParams(window.location.search);
   if (legacyMapParams.get("roland") === "restaurant" && window.location.hash !== "#roland=restaurant") {
     const cleanMapUrl = new URL(window.location.href);
