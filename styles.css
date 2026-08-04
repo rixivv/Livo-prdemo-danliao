@@ -3737,8 +3737,6 @@ video.home-scene-with-roland {
 
 .home-deepfeeling-card p {
   margin: 0;
-  padding-left: 12px;
-  border-left: 1.5px solid rgba(255,255,255,.3);
   font-size: 13px;
   line-height: 1.6;
 }
