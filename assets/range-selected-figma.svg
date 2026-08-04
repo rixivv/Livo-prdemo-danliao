@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="16 / icon_xuanze_select_16">
+<rect id="Rectangle 113" x="2.25" y="2.25" width="19.5" height="19.5" rx="9.75" fill="url(#paint0_linear_0_468)"/>
+<path id="Shape" d="M16.0714 9L10.5419 15L7.5 11.9354" stroke="var(--stroke-0, white)" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_468" x1="2.25" y1="12" x2="21.75" y2="12" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFC276"/>
+<stop offset="0.605039" stop-color="#FF8A97"/>
+<stop offset="1" stop-color="#FF84CC"/>
+</linearGradient>
+</defs>
+</svg>

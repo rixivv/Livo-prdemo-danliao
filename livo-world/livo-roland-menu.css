@@ -1,0 +1,42 @@
+[role="img"][aria-label^="罗兰："] {
+  pointer-events: auto !important;
+  cursor: pointer;
+}
+
+[role="img"][aria-label^="罗兰："] * {
+  pointer-events: none !important;
+}
+
+[role="img"][aria-label*="："]:not([aria-label^="罗兰："]) {
+  pointer-events: auto !important;
+  filter: brightness(0.78) saturate(0.82) !important;
+  cursor: pointer;
+}
+
+[role="img"][aria-label*="："]:not([aria-label^="罗兰："]) * {
+  pointer-events: none !important;
+}
+
+.livo-map-toast {
+  position: absolute;
+  z-index: 130;
+  top: 50%;
+  left: 50%;
+  min-width: 120px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font: 400 13px/22px "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+  text-align: center;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, calc(-50% + 6px));
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.livo-map-toast.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}

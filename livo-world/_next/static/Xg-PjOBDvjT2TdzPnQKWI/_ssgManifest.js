@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fchat\u002F[location]","\u002Fevent\u002F[location]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

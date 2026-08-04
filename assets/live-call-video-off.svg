@@ -1,0 +1,6 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame">
+<path id="Subtract" d="M17.1328 19.9609C17.0072 19.9856 16.8791 20 16.75 20H3.4502C2.45227 20 1.5 19.2364 1.5 18.125V5.875C1.5 5.42844 1.65464 5.03874 1.90332 4.73145L17.1328 19.9609ZM16.75 4C17.748 4 18.7002 4.76364 18.7002 5.875V7.90527L20.9316 6.36426C21.2375 6.1531 21.6357 6.12909 21.9648 6.30176C22.294 6.47449 22.5 6.81579 22.5 7.1875V17.25C22.5 17.6217 22.294 17.963 21.9648 18.1357C21.6357 18.3084 21.2375 18.2844 20.9316 18.0732L20.833 18.0049L6.82812 4H16.75Z" fill="white"/>
+<path id="Vector" d="M21 21L2 2" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

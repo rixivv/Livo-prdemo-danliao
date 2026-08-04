@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="ic-close">
+<foreignObject x="-53.3333" y="-53.3333" width="126.667" height="126.667"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(26.67px);clip-path:url(#bgblur_0_0_4_clip_path);height:100%;width:100%"></div></foreignObject><circle id="Ellipse 3264" data-figma-bg-blur-radius="53.3333" cx="10" cy="10" r="10" fill="var(--fill-0, white)" fill-opacity="0.1"/>
+<g id="16 / navbar_icon_guanbi_16">
+<path id="Union" d="M12.5285 6.52886C12.7889 6.26851 13.2115 6.26851 13.4719 6.52886C13.732 6.78923 13.7322 7.21196 13.4719 7.47222L10.9436 10.0005L13.4719 12.5289C13.732 12.7892 13.7322 13.212 13.4719 13.4722C13.2116 13.7325 12.7889 13.7323 12.5285 13.4722L10.0002 10.9439L7.4719 13.4722C7.21164 13.7324 6.78889 13.7323 6.52854 13.4722C6.26821 13.2119 6.26825 12.7892 6.52854 12.5289L9.05686 10.0005L6.52854 7.47222C6.2682 7.21188 6.26822 6.78921 6.52854 6.52886C6.78889 6.26851 7.21155 6.26851 7.4719 6.52886L10.0002 9.05718L12.5285 6.52886Z" fill="var(--fill-0, white)" fill-opacity="0.6"/>
+</g>
+</g>
+<defs>
+<clipPath id="bgblur_0_0_4_clip_path" transform="translate(53.3333 53.3333)"><circle cx="10" cy="10" r="10"/>
+</clipPath></defs>
+</svg>

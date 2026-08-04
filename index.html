@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>活着的数字生命 · 实时演绎与离开实验版</title>
+    <link rel="preload" as="image" href="./assets/intro-bg.webp" type="image/webp" fetchpriority="high" />
+    <link rel="stylesheet" href="./styles.css?v=20260804-80" />
+  </head>
+  <body>
+    <main class="stage">
+      <aside class="report-guide" aria-label="活着的数字生命方案汇报说明">
+        <button
+          class="report-toggle"
+          type="button"
+          data-action="toggle-report"
+          aria-label="收起方案说明"
+          aria-expanded="true"
+        >
+          <span aria-hidden="true">‹</span>
+        </button>
+        <div class="report-eyebrow">LIVO · 实时演绎与离开实验</div>
+        <h1>活着的数字生命</h1>
+        <nav class="demo-version-switch" aria-label="Demo 版本切换">
+          <a href="../index.html">
+            <small>独立基线</small>
+            <strong>视频预设版</strong>
+          </a>
+          <a href="../api-experiment-version/index.html">
+            <small>实验基线</small>
+            <strong>文字对话、实时对话数字人、实时演绎动画</strong>
+          </a>
+          <a class="is-active" href="./index.html" aria-current="page">
+            <small>当前版本</small>
+            <strong>文字对话、实时对话数字人、实时演绎动画、离开</strong>
+          </a>
+        </nav>
+
+      </aside>
+      <section class="device-preview" aria-label="手机模拟器">
+        <div class="device-shell">
+          <div class="device-speaker" aria-hidden="true"></div>
+          <div class="device-camera" aria-hidden="true"></div>
+          <div class="device-button device-button-mute" aria-hidden="true"></div>
+          <div class="device-button device-button-up" aria-hidden="true"></div>
+          <div class="device-button device-button-down" aria-hidden="true"></div>
+          <div class="device-button device-button-power" aria-hidden="true"></div>
+          <section class="phone home-active" data-entry="chat" aria-label="与罗兰对话原型">
+        <div class="status-bar">
+          <span>6:16</span>
+          <div class="status-icons">
+            <img src="https://www.figma.com/api/mcp/asset/e29dce4d-0618-4235-8e11-c030d7bce9bc" alt="" />
+            <img src="https://www.figma.com/api/mcp/asset/09f0b830-37d5-4166-8f35-46d2472548b3" alt="" />
+            <img src="https://www.figma.com/api/mcp/asset/94fff8b7-8a5c-4883-b351-434ba7f8ed9d" alt="" />
+          </div>
+        </div>
+
+        <section class="screen home-screen active" data-screen="home" aria-label="首页">
+          <div class="home-scene" aria-hidden="true">
+            <img
+              class="home-static-portrait"
+              src="./assets/roland-digital-human-first-frame.png"
+              alt=""
+              decoding="sync"
+              fetchpriority="high"
+            />
+            <video
+              class="home-scene-with-roland"
+              id="rolandMicroexpressionVideo"
+              muted
+              loop
+              playsinline
+              preload="auto"
+            >
+              <source src="./assets/roland-life-stream.mp4?v=20260729-1" type="video/mp4" />
+            </video>
+            <video
+              class="home-return-video"
+              id="rolandReturnVideo"
+              playsinline
+              preload="auto"
+            >
+              <source src="./assets/roland-return-greeting-no-audio.mp4?v=20260728-1" type="video/mp4" />
+            </video>
+            <video
+              class="home-departure-video"
+              id="rolandDepartureVideo"
+              muted
+              playsinline
+              preload="auto"
+            >
+              <source src="./assets/roland-departure.mp4?v=20260729-3" type="video/mp4" />
+            </video>
+            <video
+              class="home-digital-human-video"
+              id="rolandDigitalHumanVideo"
+              muted
+              playsinline
+              preload="metadata"
+            ></video>
+            <canvas class="home-departure-frame" id="rolandDepartureFrame"></canvas>
+            <div class="home-mode-background home-call-background" aria-hidden="true">
+              <img class="home-mode-background-image" src="./assets/live-call-background.png" alt="" />
+              <img class="home-call-character" src="./assets/live-call-character.png" alt="" />
+            </div>
+            <div class="home-mode-background home-scene-background" aria-hidden="true">
+              <img class="home-mode-background-image" src="./assets/live-scene-background.png" alt="" />
+            </div>
+            <div class="home-life-light"></div>
+            <div class="home-life-shadow"></div>
+            <div class="home-joy-hearts" aria-hidden="true">
+              <img
+                id="rolandJoyHeartsGif"
+                src="./assets/roland-joy-hearts.gif?v=20260729-1"
+                alt=""
+              />
+            </div>
+          </div>
+          <span class="home-ai-label" aria-hidden="true">内容由AI生成</span>
+          <div class="home-bottom-blur" aria-hidden="true"></div>
+          <div class="home-top-blur" aria-hidden="true"></div>
+          <div class="home-top-shade" aria-hidden="true"></div>
+
+          <div class="home-status-bar" aria-hidden="true">
+            <span class="home-status-time">6:16</span>
+            <img class="home-status-cellular" src="./assets/home-cellular.svg" alt="" />
+            <img class="home-status-wifi" src="./assets/home-wifi.svg" alt="" />
+            <img class="home-status-battery" src="./assets/home-battery.svg" alt="" />
+          </div>
+
+          <header class="home-navigation">
+            <a class="home-nav-back" href="./livo-world/tilia/map/index.html" data-return-to-map aria-label="返回进入对话前的地图位置">
+              <img src="./assets/home-back.svg" alt="" />
+            </a>
+            <button class="home-profile-entry" type="button" aria-label="罗兰角色信息">
+              <span class="home-profile-art" aria-hidden="true">
+                <img class="home-profile-avatar-figma" src="./assets/home-profile-avatar-figma.png" alt="" />
+              </span>
+              <img class="home-profile-glow" src="./assets/home-profile-glow.svg" alt="" />
+              <span class="home-profile-copy">
+                <strong>罗兰</strong>
+                <img class="home-profile-dot" src="./assets/home-profile-dot.svg" alt="" />
+                <img class="home-profile-subtitle" src="./assets/home-profile-subtitle.svg" alt="" />
+                <img class="home-profile-arrow" src="./assets/home-profile-arrow.svg" alt="" />
+              </span>
+            </button>
+            <div class="home-nav-context" aria-label="当前位置与声音">
+              <button class="home-location-pill" type="button" data-return-to-map aria-label="返回地图中的包厢位置">
+                <img src="./assets/home-location.svg" alt="" />
+                <span>包厢</span>
+              </button>
+              <button class="home-sound-button" type="button" aria-label="声音">
+                <img src="./assets/home-sound.svg" alt="" />
+              </button>
+            </div>
+          </header>
+
+          <section class="home-conversation" aria-label="与罗兰的对话">
+            <div class="home-chat-thread" id="homeChatThread" aria-live="polite">
+              <div class="home-dialogue-row">
+                <article class="home-dialogue-bubble">
+                  <p>钢笔尖在稿纸上停住。罗兰抬眼看向你怀中的行李箱，笑意温和，目光却像细刃般掠过锁扣。</p>
+                  <strong>“和平号还有很长一段路。你若睡不着，不妨陪我聊聊。”</strong>
+                </article>
+                <div class="home-quick-functions" aria-label="快捷功能">
+                  <button type="button" aria-label="继续"><img src="./assets/home-continue.svg" alt="" /></button>
+                  <button type="button" class="is-active" aria-label="灵感回复" aria-pressed="true"><img src="./assets/home-lamp.svg" alt="" /></button>
+                </div>
+              </div>
+            </div>
+
+            <section class="home-away-state" id="homeAwayState" aria-label="罗兰已离开" hidden>
+              <article class="home-away-card">
+                <header>
+                  <span class="home-away-avatar" aria-hidden="true">
+                    <img src="./assets/home-profile-avatar-figma.png" alt="" />
+                  </span>
+                  <strong>罗兰离开了</strong>
+                </header>
+                <p>他转身出车厢包间，心想先走再说，太生气了，一时半会消不了气。</p>
+                <button class="home-away-schedule" id="homeAwaySchedule" type="button" hidden>
+                  查看Ta的日程 <span aria-hidden="true">›</span>
+                </button>
+              </article>
+              <div class="home-away-messages" id="homeAwayMessages" aria-live="polite"></div>
+              <button class="home-away-find" id="homeAwayFind" type="button">
+                或许该去 <strong>● 餐车</strong> 找Ta <span aria-hidden="true">›</span>
+              </button>
+            </section>
+
+            <article class="home-deepfeeling-card" id="homeDeepFeelingCard" aria-label="罗兰的情绪感知" hidden>
+              <header><span aria-hidden="true">✦</span> Deepfeeling·情绪感知...</header>
+              <p>等了你那么久，竟然等来一句讨厌我。哼，我可不是什么大度的人，还是会伤心的。算了，我走！</p>
+              <strong><i aria-hidden="true">✹</i> 恼怒</strong>
+            </article>
+
+            <div class="home-state-actions">
+              <button class="home-mood-button" type="button">
+                <img src="./assets/home-mood.svg" alt="" />
+                <span>平静</span>
+              </button>
+              <button class="home-butterfly-button" type="button" aria-label="心动">
+                <img src="./assets/home-butterfly.svg" alt="" />
+              </button>
+            </div>
+
+            <div class="home-camera-preview" id="homeCameraPreview" hidden>
+              <video id="homeCameraVideo" autoplay muted playsinline aria-label="用户摄像头画面"></video>
+              <span class="home-camera-live"><i></i>LIVE</span>
+            </div>
+
+            <section class="home-live-scene" id="homeLiveScene" aria-label="实时演绎" hidden>
+              <div class="home-live-scene-media">
+                <video
+                  id="homeLiveSceneVideo"
+                  src="./assets/roland-live-scene-writing.mp4"
+                  poster="./assets/live-scene-writing.png"
+                  preload="metadata"
+                  muted
+                  playsinline
+                  aria-label="罗兰在列车包厢中写作的实时演绎占位视频"
+                ></video>
+                <button class="home-live-scene-replay" id="homeLiveSceneReplay" type="button" aria-label="重新播放实时演绎" hidden>
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19 8.5A8 8 0 1 0 20 14" />
+                    <path d="M19 4v4.5h-4.5" />
+                  </svg>
+                  <span>重新播放</span>
+                </button>
+              </div>
+              <article class="home-live-scene-card">
+                <header>
+                  <img src="./assets/live-scene-card-icon.svg" alt="" />
+                  <strong id="homeLiveSceneCardTitle">接下来发生…</strong>
+                </header>
+                <p id="homeLiveSceneDescription" data-text="罗兰的目光在你脸上停得久了一些，原本期待你的回应，但始终没等到回复，于是缓缓低下头，继续写他的小说。"></p>
+              </article>
+            </section>
+
+            <div class="home-composer-dock" id="homeComposerDock">
+              <form class="home-adventure-input" id="homeChatForm" aria-label="给罗兰发送消息">
+                <textarea
+                  id="homeChatInput"
+                  rows="1"
+                  maxlength="300"
+                  enterkeyhint="send"
+                  aria-label="消息"
+                  placeholder="和罗兰开始冒险"
+                ></textarea>
+                <button class="home-chat-state" id="homeChatState" type="button" aria-label="插入括号内容" hidden>
+                  <img src="./assets/home-state-brackets.svg" alt="" />
+                </button>
+                <button class="home-chat-send" type="submit" aria-label="发送消息" disabled>
+                  <span class="home-chat-send-icon" aria-hidden="true">
+                    <img class="home-chat-send-bg" src="./assets/send-bg-figma.svg" alt="" />
+                    <img class="home-chat-send-arrow" src="./assets/send-arrow-figma.svg" alt="" />
+                  </span>
+                </button>
+              </form>
+              <button class="home-composer-entry" id="homeLiveSceneButton" type="button" aria-label="开启实时演绎" aria-pressed="false">
+                <img src="./assets/composer-live-call.svg" alt="" />
+              </button>
+              <button class="home-composer-entry" id="homeLiveCallButton" type="button" aria-label="开始数字人实时陪伴">
+                <img src="./assets/composer-live-scene.svg" alt="" />
+              </button>
+            </div>
+
+            <div class="home-live-call" id="homeLiveCall" aria-label="实时陪伴控制" hidden>
+              <div class="home-live-call-messages" id="homeLiveCallMessages" aria-live="polite"></div>
+              <div class="home-live-call-status" id="homeLiveCallStatus">罗兰正在听你讲…</div>
+              <div class="home-live-call-actions">
+                <button class="home-live-call-action home-voice-toggle" id="homeVoiceToggle" type="button" aria-label="打开麦克风" aria-pressed="false">
+                  <img src="./assets/live-call-mic-off.svg" alt="" />
+                </button>
+                <button class="home-live-call-action home-camera-button" id="homeCameraButton" type="button" aria-label="打开摄像头" aria-pressed="false">
+                  <img src="./assets/live-call-video-off.svg" alt="" />
+                </button>
+                <form class="home-live-call-input" id="homeLiveCallForm" aria-label="实时对话文字输入">
+                  <input id="homeLiveCallInput" type="text" maxlength="300" placeholder="和罗兰开始冒险" aria-label="给罗兰发送消息" />
+                  <button class="home-live-call-send" id="homeLiveCallSend" type="submit" aria-label="发送消息" disabled>
+                    <img src="./assets/send-arrow-figma.svg" alt="" />
+                  </button>
+                </form>
+                <button class="home-live-call-action home-live-call-end" id="homeLiveCallEnd" type="button" aria-label="结束实时陪伴">
+                  <img src="./assets/live-call-end.svg" alt="" />
+                </button>
+              </div>
+            </div>
+
+            <div class="home-live-scene-composer" id="homeLiveSceneComposer" hidden>
+              <form class="home-live-scene-input" id="homeLiveSceneForm">
+                <input id="homeLiveSceneInput" type="text" maxlength="300" placeholder="和罗兰开始冒险" aria-label="实时演绎文字输入" />
+                <button class="home-chat-send home-live-scene-send" id="homeLiveSceneSend" type="submit" aria-label="发送实时演绎指令" disabled>
+                  <span class="home-chat-send-icon" aria-hidden="true">
+                    <img class="home-chat-send-bg" src="./assets/send-bg-figma.svg" alt="" />
+                    <img class="home-chat-send-arrow" src="./assets/send-arrow-figma.svg" alt="" />
+                  </span>
+                </button>
+              </form>
+              <button class="home-live-scene-close" id="homeLiveSceneClose" type="button" aria-label="关闭实时演绎">
+                <img src="./assets/live-scene-close-glyph.svg" alt="" />
+              </button>
+            </div>
+            <div class="home-chat-toast" id="homeChatToast" role="status" aria-live="polite"></div>
+          </section>
+
+        </section>
+
+        <section class="screen intro-screen" data-screen="intro">
+          <img class="intro-bg" src="./assets/intro-bg.webp" alt="" width="397" height="365" fetchpriority="high" decoding="sync" />
+          <img class="intro-star" src="./assets/intro-star-figma-413-20608.png" alt="" />
+          <button class="icon-button intro-back" data-action="home" aria-label="返回">
+            <img src="https://www.figma.com/api/mcp/asset/42734182-16f0-488b-9258-1017b1542505" alt="" />
+          </button>
+          <div class="intro-copy">
+            <h1>你们的每次靠近，都会留下痕迹，<br />也会点亮火光</h1>
+            <p>这些痕迹会在火光的照亮下慢慢连接，<br />生长成属于你的心迹地图</p>
+          </div>
+          <button class="intro-entry" data-action="map">
+            <img src="https://www.figma.com/api/mcp/asset/873678b9-23b9-408b-9160-6b1e749575a6" alt="" />
+            <span>它帮助你看见自己、认识自己</span>
+            <small>查看我的心迹地图 <img src="https://www.figma.com/api/mcp/asset/c904b5eb-f35d-4301-9788-e46a85898543" alt="" /></small>
+          </button>
+        </section>
+
+        <section class="screen map-screen" data-screen="map">
+          <header class="topbar">
+            <button class="icon-button" data-action="map-back" aria-label="返回">
+              <img src="https://www.figma.com/api/mcp/asset/c79a1ada-7ce4-45d3-9cd0-c394ae36902c" alt="" />
+            </button>
+            <strong>心迹地图</strong>
+            <div class="top-actions">
+              <button class="icon-button" data-action="open-map-share" aria-label="分享"><img src="https://www.figma.com/api/mcp/asset/f7384886-341e-4876-8599-d96c35157ac6" alt="" /></button>
+              <button class="icon-button" data-action="open-more-menu" aria-label="更多"><img src="https://www.figma.com/api/mcp/asset/073f24c8-2398-40f3-ad5d-288fdce91fde" alt="" /></button>
+            </div>
+          </header>
+
+          <section class="inactive-return-card" aria-label="长期未互动提醒">
+            <button class="inactive-return-close" type="button" data-action="dismiss-inactive-card" aria-label="关闭提醒">
+              <img src="./assets/inactive-card-close.svg" alt="" />
+            </button>
+            <p>你不在的这段时间，火光逐渐暗了下来</p>
+            <strong>心迹地图也停在了上一次被照亮的地方～</strong>
+          </section>
+
+          <div class="map-image">
+            <img class="map-contours" src="./assets/map-no-labels.webp" alt="" />
+            <div class="map-starlight" role="group" aria-label="互动留下的星光">
+              <button class="star-dot star-dot-small" style="--x:117px; --y:94px" data-action="open-trace" aria-label="查看互动回响"></button>
+              <button class="star-dot star-dot-small" style="--x:232px; --y:193px" data-action="open-trace" aria-label="查看互动回响"></button>
+              <i class="star-dot star-dot-small" style="--x:266px; --y:162px"></i>
+              <i class="star-dot star-dot-small" style="--x:60px; --y:164px"></i>
+              <i class="star-dot star-dot-small" style="--x:80px; --y:94px"></i>
+              <i class="star-dot star-dot-tiny" style="--x:302px; --y:95px"></i>
+              <i class="star-dot star-dot-medium" style="--x:108px; --y:37px"></i>
+              <i class="star-dot star-dot-medium" style="--x:170px; --y:0px"></i>
+              <i class="star-dot star-dot-medium" style="--x:206px; --y:80px"></i>
+              <i class="star-dot star-dot-medium" style="--x:266px; --y:215px"></i>
+              <i class="star-dot star-dot-medium" style="--x:27px; --y:215px"></i>
+              <i class="star-dot star-dot-medium" style="--x:191px; --y:238px"></i>
+              <i class="star-dot star-dot-medium" style="--x:0px; --y:115px"></i>
+              <i class="star-dot star-dot-large" style="--x:75px; --y:65px"></i>
+            </div>
+            <button class="center-fire" type="button" data-action="open-flame" aria-label="查看火光状态" aria-controls="flameModal" aria-expanded="false">
+              <img src="./assets/fire-logo-figma.png" alt="" />
+            </button>
+            <div class="selected-topic-ring" id="selectedTopicRing" aria-hidden="true"></div>
+            <button class="map-topic topic-protect" data-action="topic">自我保护</button>
+            <button class="map-topic topic-fit mosaic-topic" data-action="open-mosaic-topic" aria-label="健身达人">
+              <span class="mosaic-label" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            </button>
+            <button class="map-topic topic-sweet" data-action="topic">狂爱甜食</button>
+            <button class="map-topic topic-explore" data-action="topic">勇于探索</button>
+            <button class="map-topic topic-joke" data-action="topic">嘴硬心善</button>
+            <button class="map-topic topic-romance" data-action="topic">天真浪漫</button>
+          </div>
+
+          <div class="track-row">
+            <p>我的心迹范围</p>
+            <button class="scope-button" data-action="range" aria-label="已选择：罗兰">
+              <span class="track-avatars" aria-hidden="true">
+                <img data-range-avatar="罗兰" src="https://www.figma.com/api/mcp/asset/57aed87e-bb2c-4dc5-9b49-5705d73ede59" alt="" />
+                <img data-range-avatar="周往" src="https://www.figma.com/api/mcp/asset/768ac024-d9bd-45bc-a749-d2268eaba7f8" alt="" hidden />
+              </span>
+              <img class="scope-arrow" src="https://www.figma.com/api/mcp/asset/503dd160-0fec-4ffb-9d05-e49adc65421b" alt="" />
+            </button>
+          </div>
+
+          <div class="metrics">
+            <button data-action="open-random"><strong>随机回响</strong><small>记录无意间的痕迹</small></button>
+            <button data-action="open-fate"><strong>命运选择</strong><small>记录关键选择影响</small></button>
+          </div>
+        </section>
+
+        <section class="topic-sheet" id="topicSheet">
+          <button class="sheet-handle sheet-handle-button" data-action="close-topic" aria-label="收起"></button>
+          <button class="sheet-more icon-button" data-action="open-topic-menu" aria-label="更多">
+            <img src="https://www.figma.com/api/mcp/asset/97e52795-1e87-418d-abb4-3add48ec8e16" alt="" />
+          </button>
+          <section class="topic-action-menu" id="topicActionMenu" aria-hidden="true">
+            <button data-action="delete">删除</button>
+            <button data-action="open-share-page">分享</button>
+          </section>
+          <h2>玩笑的背后</h2>
+          <p>你不是不想靠近。<br />你只是更习惯先把靠近藏进玩笑里。<br />好像只要自己看起来没那么认真，就不会太容易受伤。</p>
+          <h3>我们的对话（8条）</h3>
+          <div class="dialog-box" id="dialogBox">
+            <time>20260625</time>
+            <div class="line left"><img src="https://www.figma.com/api/mcp/asset/536df490-8495-48ce-8dc9-a0d20fa4df8c" alt="" /><span>你难道不想靠近吗</span></div>
+            <div class="line right"><span>靠近什么，逗你呢！</span><img src="https://www.figma.com/api/mcp/asset/d3366041-ea6b-4737-8430-a9cd3acc3a22" alt="" /></div>
+            <div class="line left"><img src="https://www.figma.com/api/mcp/asset/536df490-8495-48ce-8dc9-a0d20fa4df8c" alt="" /><span>真的吗？</span></div>
+            <div class="line right"><span>哈哈哈我开玩笑呢</span><img src="https://www.figma.com/api/mcp/asset/d3366041-ea6b-4737-8430-a9cd3acc3a22" alt="" /></div>
+            <div class="line left extra"><img src="https://www.figma.com/api/mcp/asset/536df490-8495-48ce-8dc9-a0d20fa4df8c" alt="" /><span>也许不止是玩笑。</span></div>
+            <time class="extra">20260520</time>
+            <div class="line right extra"><span>我不习惯吃这些蛋糕</span><img src="https://www.figma.com/api/mcp/asset/d3366041-ea6b-4737-8430-a9cd3acc3a22" alt="" /></div>
+            <div class="line left extra"><img src="https://www.figma.com/api/mcp/asset/536df490-8495-48ce-8dc9-a0d20fa4df8c" alt="" /><span>你又在开玩笑吗？</span></div>
+            <div class="line right extra"><span>也许？</span><img src="https://www.figma.com/api/mcp/asset/d3366041-ea6b-4737-8430-a9cd3acc3a22" alt="" /></div>
+            <button class="expand-button" data-action="expand">展开<img src="https://www.figma.com/api/mcp/asset/aae845ae-7c34-49f5-93cb-1133480fd2ab" alt="" /></button>
+          </div>
+        </section>
+
+        <section class="topic-sheet trace-sheet" id="traceSheet" aria-hidden="true">
+          <button class="sheet-handle sheet-handle-button" data-action="close-trace" aria-label="收起"></button>
+          <h2>同一条线索</h2>
+          <p>坍塌事故留下的似乎不只有伤痕。<br />罗兰总能提前发现异常，周往却一次次把你挡在危险之外。<br />两段看似无关的对话，正在指向同一个被遗忘的夜晚。</p>
+          <h3>对话回响（4条）</h3>
+          <div class="dialog-box trace-dialog-box">
+            <time>17岁夏天 · 旧教学楼</time>
+            <div class="line left"><img src="https://www.figma.com/api/mcp/asset/536df490-8495-48ce-8dc9-a0d20fa4df8c" alt="罗兰" /><span>旧教学楼的封锁线，昨晚被人换过。</span></div>
+            <div class="line right"><span>你怎么知道我去过那里？</span><img src="https://www.figma.com/api/mcp/asset/d3366041-ea6b-4737-8430-a9cd3acc3a22" alt="我" /></div>
+            <div class="line left"><img src="https://www.figma.com/api/mcp/asset/1655c0c1-3351-46c1-a994-201119e76e29" alt="周往" /><span>别再一个人查事故。那地方不对劲。</span></div>
+            <div class="line right"><span>你们两个，到底瞒了我什么？</span><img src="https://www.figma.com/api/mcp/asset/d3366041-ea6b-4737-8430-a9cd3acc3a22" alt="我" /></div>
+          </div>
+        </section>
+
+        <section class="range-sheet" id="rangeSheet" aria-hidden="true">
+          <button class="sheet-handle sheet-handle-button" data-action="close-range" aria-label="收起"></button>
+          <div class="range-copy">
+            <h2>选择心迹范围</h2>
+            <p>选择你想查看的角色，地图将只呈现你与这些角色之间留下的对话、记忆、选择和情绪痕迹。</p>
+          </div>
+          <div class="range-list" role="group" aria-label="多选心迹范围">
+            <button class="range-option disabled-icon" data-range="all" role="checkbox" aria-checked="false" disabled>
+              <span class="range-radio"></span>
+              <strong>DOLO最后的夏天 全世界角色</strong>
+            </button>
+            <button class="range-option selected" data-action="select-range" data-range="罗兰" role="checkbox" aria-checked="true">
+              <span class="range-radio"></span>
+              <span class="range-avatar range-avatar-zhong" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/59a2807f-5bcb-4021-969e-436df27a70d6" alt="" /></span>
+              <strong>罗兰</strong>
+            </button>
+            <button class="range-option" data-action="select-range" data-range="周往" role="checkbox" aria-checked="false">
+              <span class="range-radio"></span>
+              <span class="range-avatar range-avatar-zhou" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/1655c0c1-3351-46c1-a994-201119e76e29" alt="" /></span>
+              <strong>周往</strong>
+            </button>
+            <button class="range-option locked disabled-icon" data-range="npc" role="checkbox" aria-checked="false" disabled>
+              <span class="range-radio"></span>
+              <span class="locked-avatar"></span>
+              <strong>NPC（待解锁）</strong>
+            </button>
+          </div>
+        </section>
+
+        <section class="stat-sheet role-sheet" id="randomSheet" aria-hidden="true">
+          <button class="sheet-handle sheet-handle-button" data-action="close-stat" aria-label="收起"></button>
+          <div class="stat-nav">
+            <span aria-hidden="true"></span>
+            <h2>角色</h2>
+            <span><img src="https://www.figma.com/api/mcp/asset/4caeaf7c-c696-4aeb-8aae-5ea9c7604f46" alt="" /></span>
+          </div>
+          <div class="role-list">
+            <button class="role-row" data-action="open-fate-detail">
+              <img src="https://www.figma.com/api/mcp/asset/dd1fe791-c666-4084-95f9-5e0116c6f4a8" alt="" />
+              <strong>罗兰</strong>
+              <img class="role-arrow" src="https://www.figma.com/api/mcp/asset/61e1cc49-333a-42cf-9c26-7f448e7e6251" alt="" />
+            </button>
+            <button class="role-row" data-action="open-fate-detail">
+              <span class="role-avatar role-avatar-zhou" aria-hidden="true"><img src="https://www.figma.com/api/mcp/asset/cfa9ecb1-3313-4059-b670-9ce664536344" alt="" /></span>
+              <strong>周往</strong>
+              <img class="role-arrow" src="https://www.figma.com/api/mcp/asset/61e1cc49-333a-42cf-9c26-7f448e7e6251" alt="" />
+            </button>
+            <button class="role-row" data-action="open-fate-detail">
+              <img src="https://www.figma.com/api/mcp/asset/495636f8-860f-45be-be19-084b3b6d8f3e" alt="" />
+              <strong>夏季</strong>
+              <img class="role-arrow" src="https://www.figma.com/api/mcp/asset/61e1cc49-333a-42cf-9c26-7f448e7e6251" alt="" />
+            </button>
+          </div>
+        </section>
+
+        <section class="stat-sheet fate-sheet" id="fateSheet" aria-hidden="true">
+          <button class="sheet-handle sheet-handle-button" data-action="close-stat" aria-label="收起"></button>
+          <div class="stat-nav">
+            <button class="sheet-back" data-action="back-to-role-sheet" aria-label="返回"><img src="https://www.figma.com/api/mcp/asset/f3dabff0-d33c-41c8-9eba-0a8c34d8d449" alt="" /></button>
+            <h2>已发生的命运选择</h2>
+            <span><img src="https://www.figma.com/api/mcp/asset/4caeaf7c-c696-4aeb-8aae-5ea9c7604f46" alt="" /></span>
+          </div>
+          <div class="fate-content">
+            <div class="fate-line" aria-hidden="true"></div>
+            <article class="fate-section">
+              <header>
+                <img class="fate-icon" src="./assets/fate-icon-figma.svg" alt="" />
+                <p>注定的命运</p>
+                <time>第232天</time>
+              </header>
+              <button class="fate-card">
+                <img class="fate-card-art" src="./assets/fate-card-art-figma.png" alt="" />
+                <div>
+                  <strong>夜色同乘</strong>
+                  <p>罗兰听到你的回答，唇角微微一动，便拎起那个崭新的头盔向你走近。他帮你扣好系带时，指...</p>
+                </div>
+                <img class="fate-enter-icon" src="https://www.figma.com/api/mcp/asset/03d96275-b032-4a5a-a034-1001a352ab3c" alt="" />
+              </button>
+            </article>
+          </div>
+        </section>
+
+        <section class="stat-sheet random-echo-sheet" id="randomEchoSheet" aria-hidden="true">
+          <button class="sheet-handle sheet-handle-button" data-action="close-stat" aria-label="收起"></button>
+          <div class="stat-nav random-echo-nav">
+            <button class="sheet-back" data-action="close-stat" aria-label="返回"><img src="https://www.figma.com/api/mcp/asset/7b5b16ca-51c8-4e47-9153-4b566ecdbaed" alt="" /></button>
+            <h2>随机回响</h2>
+            <button class="random-refresh" data-action="refresh-random" aria-label="刷新"><img src="https://www.figma.com/api/mcp/asset/0ea7b897-9c8f-4005-9c35-6bd704f1e0ea" alt="" /></button>
+          </div>
+          <p class="random-echo-loading" role="status" aria-live="polite">正在唤起回响…</p>
+          <div class="random-echo-scroll">
+            <section class="random-summary">
+              <h3>海边的烟花</h3>
+              <p>那天你提到喜欢海边和烟花，以及你小时候与父母在一起的快乐回忆，这段偏好被罗兰和世界记住了，也慢慢影响了罗兰后来的选择。</p>
+            </section>
+            <section class="echo-timeline">
+              <h3>回响起点</h3>
+              <div class="echo-list">
+                <img class="echo-line" src="./assets/random-echo-timeline-figma.svg" alt="" aria-hidden="true" />
+                <button class="echo-card">
+                  <div>
+                    <strong>发现罗兰骑机车</strong>
+                    <span class="mini-avatars"><img src="https://www.figma.com/api/mcp/asset/b5fe6738-d446-4b5b-8bdb-70848db68617" alt="" /><img src="https://www.figma.com/api/mcp/asset/a500a6a8-f6de-4331-af50-482b6caff6f4" alt="" /></span>
+                  </div>
+                  <small>5 条对话</small><img class="echo-arrow" src="https://www.figma.com/api/mcp/asset/6dbc11ce-bd94-4d35-818f-2841d2950445" alt="" />
+                </button>
+                <button class="echo-card">
+                  <div>
+                    <strong>你们约好一起去海边</strong>
+                    <span class="mini-avatars"><img src="https://www.figma.com/api/mcp/asset/b5fe6738-d446-4b5b-8bdb-70848db68617" alt="" /><img src="https://www.figma.com/api/mcp/asset/a500a6a8-f6de-4331-af50-482b6caff6f4" alt="" /></span>
+                  </div>
+                  <small>4 条对话</small><img class="echo-arrow" src="https://www.figma.com/api/mcp/asset/6dbc11ce-bd94-4d35-818f-2841d2950445" alt="" />
+                </button>
+                <button class="echo-card" data-action="open-echo-detail">
+                  <div>
+                    <strong>罗兰记得你喜欢看烟花</strong>
+                    <span class="mini-avatars three"><img src="https://www.figma.com/api/mcp/asset/b5fe6738-d446-4b5b-8bdb-70848db68617" alt="" /><img src="https://www.figma.com/api/mcp/asset/a500a6a8-f6de-4331-af50-482b6caff6f4" alt="" /><img src="https://www.figma.com/api/mcp/asset/1655c0c1-3351-46c1-a994-201119e76e29" alt="" /></span>
+                  </div>
+                  <small>5 条对话</small><img class="echo-arrow" src="https://www.figma.com/api/mcp/asset/6dbc11ce-bd94-4d35-818f-2841d2950445" alt="" />
+                </button>
+                <button class="echo-card echo-card-wide">
+                  <div>
+                    <strong>罗兰跑了学校附近好几家小卖部才买到仙女棒</strong>
+                    <span class="mini-avatars"><img src="https://www.figma.com/api/mcp/asset/a500a6a8-f6de-4331-af50-482b6caff6f4" alt="" /></span>
+                  </div>
+                </button>
+                <button class="echo-card">
+                  <div>
+                    <strong>你们在海边点燃仙女棒</strong>
+                    <span class="mini-avatars"><img src="https://www.figma.com/api/mcp/asset/b5fe6738-d446-4b5b-8bdb-70848db68617" alt="" /><img src="https://www.figma.com/api/mcp/asset/a500a6a8-f6de-4331-af50-482b6caff6f4" alt="" /></span>
+                  </div>
+                  <small>2 条对话</small><img class="echo-arrow" src="https://www.figma.com/api/mcp/asset/6dbc11ce-bd94-4d35-818f-2841d2950445" alt="" />
+                </button>
+                <button class="echo-card echo-continue" data-action="home">
+                  <strong>罗兰后来在海边事件里，更容易想起和你一起看烟花。</strong>
+                  <span>心迹还在继续，去找 TA <img src="https://www.figma.com/api/mcp/asset/f0ab0cc7-45ad-4b81-900c-c7619fd709d4" alt="" /></span>
+                </button>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="more-menu" id="moreMenu" aria-hidden="true">
+          <button data-action="open-reading-guide">如何阅读</button>
+          <button data-action="regenerate-map">重新生成</button>
+        </section>
+
+        <div class="regenerate-toast" id="regenerateToast" role="status" aria-live="polite" aria-hidden="true">暂未形成新的心迹</div>
+
+        <section class="reading-modal" id="readingModal" aria-hidden="true">
+          <div class="reading-card" role="dialog" aria-modal="true" aria-labelledby="readingTitle">
+            <div class="reading-copy">
+              <h2 id="readingTitle">如何阅读心迹地图</h2>
+              <p>原点代表你们的每一次对话、靠近、沉默和选择</p>
+              <p>山峰标签代表 TA 对你的印象主题</p>
+              <p>等高线越密，说明主题越集中、越强烈</p>
+            </div>
+            <button data-action="close-reading-guide">我知道了</button>
+          </div>
+        </section>
+
+        <section class="flame-modal" id="flameModal" role="dialog" aria-modal="true" aria-label="火光状态" aria-hidden="true">
+          <div class="flame-card">
+            <img class="flame-card-icon" src="./assets/fire-logo-figma.png" alt="" />
+            <div>
+              <strong>你的小火光已经持续点亮 196 天</strong>
+              <p id="flameStatusDescription">心迹地图正在长成，心中火光逐渐被点亮…</p>
+            </div>
+          </div>
+          <button class="flame-close" data-action="close-flame" aria-label="关闭">
+            <img src="https://www.figma.com/api/mcp/asset/323f0fcd-43e6-4a3f-836e-1302ab71d4a0" alt="" />
+          </button>
+        </section>
+
+        <section class="mosaic-modal" id="mosaicModal" aria-hidden="true">
+          <div class="mosaic-card">
+            <div class="mosaic-card-title" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <div class="mosaic-card-line" aria-hidden="true"></div>
+            <p>某个主题快要形成，但还没完全清晰。</p>
+          </div>
+          <button class="mosaic-close" data-action="close-mosaic-topic" aria-label="关闭">
+            <img src="https://www.figma.com/api/mcp/asset/dd5639c9-dbb0-49cf-8827-7c6b182b5bc9" alt="" />
+          </button>
+        </section>
+
+        <dialog class="delete-dialog" id="deleteDialog">
+          <h2>要删除关于你们的这些记忆吗？</h2>
+          <button class="primary" data-action="cancel-delete">取消</button>
+          <button class="secondary" data-action="confirm-delete">确认</button>
+        </dialog>
+
+        <section class="share-page" id="sharePage" aria-hidden="true">
+          <img class="share-background" src="https://www.figma.com/api/mcp/asset/ade32e8d-5bbe-4542-9551-184fe2666421" alt="" />
+          <div class="share-status-bar" aria-hidden="true">
+            <span>6:16</span>
+            <img class="share-cellular" src="https://www.figma.com/api/mcp/asset/f6be9533-f1c8-4b19-8709-179f37af1afb" alt="" />
+            <img class="share-wifi" src="https://www.figma.com/api/mcp/asset/c7cf6659-f9cf-4111-b347-e4fc03300c90" alt="" />
+            <img class="share-battery" src="https://www.figma.com/api/mcp/asset/d047c0f4-da03-49b3-b423-a31931f55d7a" alt="" />
+          </div>
+          <button class="share-close" data-action="close-share-page" aria-label="关闭分享页">
+            <img src="https://www.figma.com/api/mcp/asset/e8f38bdc-9b3a-4c5d-9f92-b5f036421b8e" alt="" />
+          </button>
+          <article class="share-story-card">
+            <div class="share-card-avatars" aria-hidden="true">
+              <img src="https://www.figma.com/api/mcp/asset/98f8319a-f222-4b25-8c02-b364741e127e" alt="" />
+              <span><img src="https://www.figma.com/api/mcp/asset/0e97747c-f5e7-4d1a-99c0-6047fa0ae9f3" alt="" /></span>
+            </div>
+            <div class="share-story-copy">
+              <p>你不是不想靠近。</p>
+              <p>你只是更习惯先把靠近藏进玩笑里。</p>
+              <p>好像只要自己看起来没那么认真，就不会太容易受伤。</p>
+            </div>
+            <div class="share-brand">
+              <span><img src="./assets/fire-logo-figma.png" alt="" /></span>
+              <strong>Livo</strong>
+            </div>
+          </article>
+          <nav class="share-actions" aria-label="分享方式">
+            <button aria-label="保存到相册"><img src="https://www.figma.com/api/mcp/asset/f5e5127b-2917-40a9-abb7-4a2b000a6a63" alt="" /></button>
+            <button aria-label="微信好友"><img src="https://www.figma.com/api/mcp/asset/e4cb6daa-d6c4-47ae-a921-72d80d32cd62" alt="" /></button>
+            <button class="share-action-layered" aria-label="朋友圈">
+              <img src="https://www.figma.com/api/mcp/asset/9b93aaaf-10ee-4eb2-b06e-ff77155eb9f3" alt="" />
+              <img src="https://www.figma.com/api/mcp/asset/6ab35de8-d2d7-476c-acfa-9aab7746b900" alt="" />
+            </button>
+            <button class="share-action-layered" aria-label="微博">
+              <img src="https://www.figma.com/api/mcp/asset/147775a3-3300-4321-9ec7-c9bcf9f7e58a" alt="" />
+              <img src="https://www.figma.com/api/mcp/asset/8e8415f7-4bc3-4254-b3b6-1cc6023dc2bb" alt="" />
+            </button>
+            <button class="share-action-layered share-action-qzone" aria-label="QQ空间">
+              <img src="https://www.figma.com/api/mcp/asset/1d493f44-4fcf-46c8-bd5a-8fdf219507eb" alt="" />
+              <img src="https://www.figma.com/api/mcp/asset/3bc91c2f-5834-4c1f-9266-4bb2564ffc1c" alt="" />
+            </button>
+            <button aria-label="更多"><img src="https://www.figma.com/api/mcp/asset/817ac8de-f9e4-4192-9f6b-4b171034821a" alt="" /></button>
+          </nav>
+        </section>
+
+        <section class="map-share-page" id="mapSharePage" aria-hidden="true">
+          <div class="map-share-status" aria-hidden="true">
+            <span>6:16</span>
+            <img class="map-share-cellular" src="https://www.figma.com/api/mcp/asset/bd15c2e3-dbb1-40b7-9d70-c4acda7ab0e5" alt="" />
+            <img class="map-share-wifi" src="https://www.figma.com/api/mcp/asset/638d1357-d863-4a9d-b764-5afb4559aa02" alt="" />
+            <img class="map-share-battery" src="https://www.figma.com/api/mcp/asset/3dbbf144-3be3-44ef-931a-0432da415f24" alt="" />
+          </div>
+          <header class="map-share-navigation">
+            <button data-action="close-map-share" aria-label="关闭分享页"><img src="https://www.figma.com/api/mcp/asset/66b5c4cf-f0a5-440a-9240-c428defa9105" alt="" /></button>
+            <h2>分享我的心迹地图</h2>
+          </header>
+          <article class="map-share-card">
+            <div class="map-share-visual" aria-label="我的心迹地图">
+              <img class="map-share-map-image" src="./assets/map-share-current.png" alt="" />
+              <div class="map-share-starlight" aria-hidden="true">
+                <span style="--x:91.57px;--y:73.57px;--size:3.131px"><img src="https://www.figma.com/api/mcp/asset/184290c1-e35f-400e-a235-ff6749de834c" alt="" /></span>
+                <span style="--x:181.57px;--y:151.05px;--size:3.131px"><img src="https://www.figma.com/api/mcp/asset/d04ba5b4-434b-4b32-981c-234c2b489657" alt="" /></span>
+                <span style="--x:208.18px;--y:126.79px;--size:3.131px"><img src="https://www.figma.com/api/mcp/asset/ca2caa22-10fb-4eeb-b9db-be0f28f5d596" alt="" /></span>
+                <span style="--x:46.96px;--y:128.35px;--size:3.131px"><img src="https://www.figma.com/api/mcp/asset/62f5ba46-8fb2-4cae-9064-c54e60ac7f65" alt="" /></span>
+                <span style="--x:62.61px;--y:73.57px;--size:3.131px"><img src="https://www.figma.com/api/mcp/asset/2fc49ab3-ced3-426a-8208-9e5b9f986cb7" alt="" /></span>
+                <span style="--x:236.36px;--y:74.35px;--size:1.565px"><img src="https://www.figma.com/api/mcp/asset/ff06d9d5-e0fb-494d-b8b5-537de17c0ce4" alt="" /></span>
+                <span style="--x:84.52px;--y:28.96px;--size:4.696px"><img src="https://www.figma.com/api/mcp/asset/30b27930-2d18-4d84-8168-ef0bf858e3f6" alt="" /></span>
+                <span style="--x:133.05px;--y:0px;--size:4.696px"><img src="https://www.figma.com/api/mcp/asset/823b5424-45f8-46aa-ad42-92360dc8430d" alt="" /></span>
+                <span style="--x:161.22px;--y:62.61px;--size:4.696px"><img src="https://www.figma.com/api/mcp/asset/88d7304e-edbc-4f00-9ae9-d5e441e3ffb3" alt="" /></span>
+                <span style="--x:208.18px;--y:168.27px;--size:4.696px"><img src="https://www.figma.com/api/mcp/asset/91e2ce29-f833-41eb-b251-80d630d66dd6" alt="" /></span>
+                <span style="--x:21.13px;--y:168.27px;--size:4.696px"><img src="https://www.figma.com/api/mcp/asset/259d7fa0-10c4-4853-94eb-f667a48d9895" alt="" /></span>
+                <span style="--x:149.48px;--y:186.27px;--size:4.696px"><img src="https://www.figma.com/api/mcp/asset/14c581ce-77a1-4750-bf57-09b2c2ee047f" alt="" /></span>
+                <span style="--x:0px;--y:90px;--size:4.696px"><img src="https://www.figma.com/api/mcp/asset/6ad512ea-43cf-4239-a69b-5d243b8c97ec" alt="" /></span>
+                <span style="--x:58.7px;--y:50.87px;--size:7.826px"><img src="https://www.figma.com/api/mcp/asset/0371f30b-120a-477b-80a9-802102ebf19e" alt="" /></span>
+              </div>
+              <span class="map-share-topic map-share-protect">自我保护</span>
+              <span class="map-share-topic map-share-fit">健身达人</span>
+              <span class="map-share-topic map-share-sweet">狂爱甜食</span>
+              <span class="map-share-topic map-share-explore">勇于探索</span>
+              <span class="map-share-topic map-share-joke">嘴硬心善</span>
+              <span class="map-share-topic map-share-romance">天真浪漫</span>
+              <img class="map-share-fire" src="./assets/fire-logo-figma.png" alt="" />
+            </div>
+            <div class="map-share-brand">
+              <div><img src="https://www.figma.com/api/mcp/asset/6706acb9-a2be-4258-b2d5-e4e1b876c39f" alt="" /><span>·</span><strong>Livo</strong></div>
+              <p>心迹地图正在长成，心中小火光持续点亮 196 天</p>
+            </div>
+          </article>
+          <nav class="map-share-actions" aria-label="分享方式">
+            <button aria-label="保存到相册"><img src="https://www.figma.com/api/mcp/asset/566a202d-27b1-4af3-a6e3-ce648731bfd4" alt="" /></button>
+            <button aria-label="微信好友"><img src="https://www.figma.com/api/mcp/asset/dd4f735f-2283-4125-985d-4f6d8efa69cd" alt="" /></button>
+            <button class="map-share-action-layered" aria-label="朋友圈"><img src="https://www.figma.com/api/mcp/asset/8b9712c2-13b0-48d4-b7ca-41445000a1a7" alt="" /><img src="https://www.figma.com/api/mcp/asset/316b00eb-a133-45b9-bd85-70bb303ad416" alt="" /></button>
+            <button class="map-share-action-layered" aria-label="微博"><img src="https://www.figma.com/api/mcp/asset/29e8c881-8625-4023-aa20-e2b819b84765" alt="" /><img src="https://www.figma.com/api/mcp/asset/930d3dce-8607-4c4d-a66d-d165a3c27330" alt="" /></button>
+            <button class="map-share-action-layered map-share-action-qzone" aria-label="QQ空间"><img src="https://www.figma.com/api/mcp/asset/8ff684d7-8e3b-480b-92d5-ad1bec3549b3" alt="" /><img src="https://www.figma.com/api/mcp/asset/5b0cf1b8-23f3-46d2-8f48-c297b79e8b7e" alt="" /></button>
+            <button aria-label="更多"><img src="https://www.figma.com/api/mcp/asset/5dc18784-708d-4a48-904f-bced8703f129" alt="" /></button>
+          </nav>
+        </section>
+
+        <section class="echo-detail-page" id="echoDetailPage" aria-hidden="true">
+          <div class="echo-detail-ambient" aria-hidden="true">
+            <img src="https://www.figma.com/api/mcp/asset/aa6a653c-7137-4efd-8abd-ca134c5bef2f" alt="" />
+          </div>
+          <div class="echo-detail-status" aria-hidden="true">
+            <span>6:16</span>
+            <img class="echo-detail-cellular" src="https://www.figma.com/api/mcp/asset/84d63188-9427-4c9f-97e4-2762ac498ce2" alt="" />
+            <img class="echo-detail-wifi" src="https://www.figma.com/api/mcp/asset/dff883e5-9425-4ea7-8e7e-8579f620646c" alt="" />
+            <img class="echo-detail-battery" src="https://www.figma.com/api/mcp/asset/776523b5-c9c5-4b7a-b5a7-d7bbc85627f0" alt="" />
+          </div>
+          <header class="echo-detail-topbar">
+            <button data-action="close-echo-detail" aria-label="返回随机回响"><img src="https://www.figma.com/api/mcp/asset/7c6bd8be-7a89-4db9-91f5-14d6bc66dc58" alt="" /></button>
+            <strong>心迹地图</strong>
+            <div>
+              <button aria-label="分享"><img src="https://www.figma.com/api/mcp/asset/8c42f8c8-00b9-40a0-acbb-7441c9b9457a" alt="" /></button>
+              <button aria-label="更多"><img src="https://www.figma.com/api/mcp/asset/719e8db8-c2ed-4fd2-a4ff-7a5e73ee6497" alt="" /></button>
+            </div>
+          </header>
+          <section class="echo-detail-sheet">
+            <button class="echo-detail-handle" data-action="close-echo-detail" aria-label="收起回响详情"></button>
+            <div class="echo-detail-content">
+              <section class="echo-detail-summary">
+                <div class="echo-detail-title">
+                  <button data-action="close-echo-detail" aria-label="返回随机回响"><img src="https://www.figma.com/api/mcp/asset/0b313f39-f60c-452b-94fb-3ecb6d69147b" alt="" /></button>
+                  <h2>罗兰记得你喜欢看烟花</h2>
+                </div>
+                <p>“那天你和周往在教室的聊天，提到喜欢在海边看烟花，罗兰也在，他没讲话，但他默默记下了你的喜好”</p>
+                <div class="echo-detail-people" aria-hidden="true">
+                  <img class="echo-detail-person-user" src="https://www.figma.com/api/mcp/asset/1d27f182-1568-482b-ac54-e5e0cc4836e9" alt="" />
+                  <span class="echo-detail-person-zhong"><img src="https://www.figma.com/api/mcp/asset/56493237-8214-4c60-890c-7995275c7f4b" alt="" /></span>
+                  <span class="echo-detail-person-zhou"><img src="https://www.figma.com/api/mcp/asset/5dcb224a-4af8-4b47-b55c-6cf65fc8e1fd" alt="" /><img src="https://www.figma.com/api/mcp/asset/07d0f33c-fa59-4700-9212-644e782edede" alt="" /></span>
+                </div>
+              </section>
+              <section class="echo-detail-conversation">
+                <h3>你和周往的对话（5条）</h3>
+                <div class="echo-detail-dialog">
+                  <time>20260625</time>
+                  <div class="echo-detail-message outgoing"><span class="echo-detail-bubble">我特别喜欢海边</span><img class="echo-detail-avatar" src="https://www.figma.com/api/mcp/asset/795f61f7-0b92-4277-874b-06754ebcd12d" alt="" /></div>
+                  <div class="echo-detail-message incoming"><span class="echo-detail-avatar echo-detail-avatar-zhou"><img src="https://www.figma.com/api/mcp/asset/5dcb224a-4af8-4b47-b55c-6cf65fc8e1fd" alt="" /><img src="https://www.figma.com/api/mcp/asset/07d0f33c-fa59-4700-9212-644e782edede" alt="" /></span><span class="echo-detail-bubble">我也喜欢</span></div>
+                  <div class="echo-detail-message outgoing"><span class="echo-detail-bubble">如果可以在海边看烟花就可以了</span><img class="echo-detail-avatar" src="https://www.figma.com/api/mcp/asset/795f61f7-0b92-4277-874b-06754ebcd12d" alt="" /></div>
+                  <div class="echo-detail-message incoming"><span class="echo-detail-avatar echo-detail-avatar-zhou"><img src="https://www.figma.com/api/mcp/asset/5dcb224a-4af8-4b47-b55c-6cf65fc8e1fd" alt="" /><img src="https://www.figma.com/api/mcp/asset/07d0f33c-fa59-4700-9212-644e782edede" alt="" /></span><span class="echo-detail-bubble">你也太会想了吧？</span></div>
+                  <div class="echo-detail-message outgoing"><span class="echo-detail-bubble echo-detail-bubble-wide">真的！每到跨年夜，我和家人朋友们都会去海边看烟花</span><img class="echo-detail-avatar" src="https://www.figma.com/api/mcp/asset/795f61f7-0b92-4277-874b-06754ebcd12d" alt="" /></div>
+                </div>
+              </section>
+            </div>
+          </section>
+        </section>
+          </section>
+          <div class="device-home" aria-hidden="true"></div>
+        </div>
+      </section>
+      <aside class="stage-console" aria-label="Demo 控制台">
+        <div class="console-eyebrow">DEMO CONTROL</div>
+
+        <section class="console-section console-control-panel" aria-labelledby="entryControlTitle">
+          <h2 id="entryControlTitle">控制台</h2>
+          <section class="console-section camera-preview-console" aria-labelledby="cameraPreviewControlTitle">
+            <div>
+              <span class="camera-preview-control-label">摄像头显示</span>
+              <strong id="cameraPreviewControlTitle">展示用户视频小窗</strong>
+              <p>摄像头开启后，控制左下角预览小窗是否可见。</p>
+            </div>
+            <button
+              class="console-switch is-on"
+              id="cameraPreviewVisibilityToggle"
+              type="button"
+              role="switch"
+              aria-checked="true"
+              aria-label="展示用户视频小窗"
+            >
+              <span aria-hidden="true"></span>
+            </button>
+          </section>
+          <section class="console-section camera-preview-console scene-entry-console" aria-labelledby="sceneEntryControlTitle">
+            <div>
+              <span class="camera-preview-control-label">入口显示</span>
+              <strong id="sceneEntryControlTitle">展示实时演绎按钮</strong>
+              <p>关闭后隐藏场记板入口，输入框自动延长。</p>
+            </div>
+            <button
+              class="console-switch is-on"
+              id="liveSceneEntryVisibilityToggle"
+              type="button"
+              role="switch"
+              aria-checked="true"
+              aria-label="展示实时演绎按钮"
+            >
+              <span aria-hidden="true"></span>
+            </button>
+          </section>
+        </section>
+
+      </aside>
+    </main>
+  <script src="./script.js?v=20260804-80"></script>
+  </body>
+</html>
