@@ -1780,29 +1780,40 @@ homeChatForm?.addEventListener("submit", (event) => {
   homeChatReplyTimer = window.setTimeout(() => {
     typingBubble?.remove();
     const reply = getRolandReply(message);
-    if (reply.anger) setRolandMood("恼怒", "role-hurt");
-    if (homeComposerMode === "call") {
-      appendHomeLiveCallMessage("role", reply.text);
-      if (homeLiveCallStatus && !homeLiveCall?.classList.contains("is-typing")) {
-        homeLiveCallStatus.textContent = "罗兰正在回应你…";
+    const deliverRolandReply = () => {
+      if (reply.anger) setRolandMood("恼怒", "role-hurt");
+      if (homeComposerMode === "call") {
+        appendHomeLiveCallMessage("role", reply.text);
+        if (homeLiveCallStatus && !homeLiveCall?.classList.contains("is-typing")) {
+          homeLiveCallStatus.textContent = "罗兰正在回应你…";
+        }
       }
+      startRolandSpeaking();
+      if (reply.joy) playJoyHearts();
+      appendHomeChatTypewriter(reply.text, reply.stage, () => {
+        if (reply.departureVideo) {
+          rolandDepartureTimer = window.setTimeout(triggerRolandDepartureVideo, 500);
+          return;
+        }
+        if (reply.departure) {
+          triggerRolandDeparture();
+          return;
+        }
+        waitForUserResponse();
+        generateDigitalHumanReply(reply, message);
+        homeChatInput?.focus();
+      });
+    };
+
+    if (reply.departureVideo) {
+      showHomeDeepFeeling();
+      rolandDepartureTimer = window.setTimeout(() => {
+        hideHomeDeepFeeling();
+        deliverRolandReply();
+      }, 2600);
+      return;
     }
-    startRolandSpeaking();
-    if (reply.joy) playJoyHearts();
-    appendHomeChatTypewriter(reply.text, reply.stage, () => {
-      if (reply.departureVideo) {
-        showHomeDeepFeeling();
-        rolandDepartureTimer = window.setTimeout(triggerRolandDepartureVideo, 2600);
-        return;
-      }
-      if (reply.departure) {
-        triggerRolandDeparture();
-        return;
-      }
-      waitForUserResponse();
-      generateDigitalHumanReply(reply, message);
-      homeChatInput?.focus();
-    });
+    deliverRolandReply();
   }, 900 + Math.min(message.length * 18, 700));
 });
 
