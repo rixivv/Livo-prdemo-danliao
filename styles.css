@@ -3294,8 +3294,8 @@ video.home-scene-with-roland {
   top: var(--y);
   display: block;
   overflow: hidden;
-  opacity: .2;
-  animation: home-call-star-twinkle 4.2s var(--delay) ease-in-out infinite;
+  opacity: .08;
+  animation: home-call-star-twinkle 3s var(--delay) ease-in-out infinite;
 }
 
 .home-call-star img {
@@ -3343,9 +3343,26 @@ video.home-scene-with-roland {
 }
 
 @keyframes home-call-star-twinkle {
-  0%, 100% { opacity: .15; filter: brightness(.75); }
-  12% { opacity: 1; filter: brightness(1.45); }
-  24% { opacity: .28; filter: brightness(.9); }
+  0%, 100% {
+    opacity: .08;
+    filter: brightness(.55) drop-shadow(0 0 0 rgba(255, 241, 210, 0));
+  }
+  18% {
+    opacity: 1;
+    filter: brightness(2.2) drop-shadow(0 0 7px rgba(255, 241, 210, .95));
+  }
+  38% {
+    opacity: .18;
+    filter: brightness(.7) drop-shadow(0 0 1px rgba(255, 241, 210, .15));
+  }
+  72% {
+    opacity: .82;
+    filter: brightness(1.75) drop-shadow(0 0 5px rgba(255, 241, 210, .72));
+  }
+  86% {
+    opacity: .2;
+    filter: brightness(.8) drop-shadow(0 0 1px rgba(255, 241, 210, .18));
+  }
 }
 
 @keyframes home-call-shooting-star {
