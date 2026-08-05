@@ -2379,6 +2379,10 @@ video.home-scene-with-roland {
   gap: 8px;
 }
 
+.home-screen.live-call-active .home-nav-actions {
+  display: none;
+}
+
 .home-sound-button {
   position: relative;
   border-radius: 50%;
