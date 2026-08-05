@@ -3179,17 +3179,50 @@ video.home-scene-with-roland {
 
 .home-call-shooting-star {
   position: absolute;
-  top: 36px;
-  right: -28px;
-  width: 5px;
-  height: 5px;
+  top: var(--meteor-top);
+  right: var(--meteor-right);
+  width: var(--meteor-size);
+  height: var(--meteor-size);
   opacity: 0;
   filter: brightness(1);
   will-change: opacity, transform, filter;
 }
 
 .home-screen.live-call-active .home-call-shooting-star {
-  animation: home-call-shooting-star 7s linear infinite;
+  animation: home-call-shooting-star var(--meteor-duration) var(--meteor-delay) linear infinite;
+}
+
+.home-call-shooting-star-one {
+  --meteor-top: 28px;
+  --meteor-right: -30px;
+  --meteor-size: 5px;
+  --meteor-tail: 145px;
+  --meteor-x: -370px;
+  --meteor-y: 370px;
+  --meteor-duration: 7.4s;
+  --meteor-delay: .2s;
+}
+
+.home-call-shooting-star-two {
+  --meteor-top: 112px;
+  --meteor-right: -18px;
+  --meteor-size: 4px;
+  --meteor-tail: 112px;
+  --meteor-x: -330px;
+  --meteor-y: 330px;
+  --meteor-duration: 8.6s;
+  --meteor-delay: 1.15s;
+}
+
+.home-call-shooting-star-three {
+  --meteor-top: 4px;
+  --meteor-right: 54px;
+  --meteor-size: 3.5px;
+  --meteor-tail: 88px;
+  --meteor-x: -305px;
+  --meteor-y: 305px;
+  --meteor-duration: 9.8s;
+  --meteor-delay: 2.35s;
 }
 
 .home-call-shooting-star::before {
@@ -3207,7 +3240,7 @@ video.home-scene-with-roland {
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 145px;
+  width: var(--meteor-tail);
   height: 2px;
   border-radius: 50%;
 }
@@ -3308,7 +3341,7 @@ video.home-scene-with-roland {
   22% {
     opacity: 0;
     filter: brightness(.45);
-    transform: translate3d(-370px, 370px, 0);
+    transform: translate3d(var(--meteor-x), var(--meteor-y), 0);
   }
   22.01%, 100% {
     opacity: 0;
