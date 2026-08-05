@@ -3065,6 +3065,25 @@ video.home-scene-with-roland {
   transform: translateX(-50%);
 }
 
+.home-call-blur-layer {
+  position: absolute;
+  inset: 0;
+  width: 375.25px;
+  height: 812px;
+  background: rgba(0, 0, 0, .3);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  -webkit-mask-image: url("./assets/live-call-blur-mask-figma.svg");
+  mask-image: url("./assets/live-call-blur-mask-figma.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: .376px .313px;
+  mask-position: .376px .313px;
+  -webkit-mask-size: 375.5px 936px;
+  mask-size: 375.5px 936px;
+  pointer-events: none;
+}
+
 .home-screen.live-call-active .home-call-background,
 .home-screen.live-scene-active .home-scene-background {
   opacity: 1;
