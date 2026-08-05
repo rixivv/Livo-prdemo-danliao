@@ -2379,7 +2379,7 @@ video.home-scene-with-roland {
   gap: 8px;
 }
 
-.home-screen.live-call-active .home-nav-actions {
+.home-screen.live-call-active .home-top-call-button {
   display: none;
 }
 
