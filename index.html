@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>活着的数字生命 · 实时演绎与离开实验版</title>
     <link rel="preload" as="image" href="./assets/intro-bg.webp" type="image/webp" fetchpriority="high" />
-    <link rel="stylesheet" href="./styles.css?v=20260805-17" />
+    <link rel="stylesheet" href="./styles.css?v=20260805-18" />
   </head>
   <body>
     <main class="stage">
@@ -843,10 +843,21 @@
               <p>切换实时演绎与通话入口的位置。</p>
             </div>
             <div class="composer-layout-options" role="group" aria-label="底部操作布局方案">
-              <button class="composer-layout-option is-active" type="button" data-composer-layout="one" aria-pressed="true">方案一</button>
-              <button class="composer-layout-option" type="button" data-composer-layout="two" aria-pressed="false">方案二</button>
-              <button class="composer-layout-option" type="button" data-composer-layout="three" aria-pressed="false" hidden>方案三</button>
-              <button class="composer-layout-option" type="button" data-composer-layout="four" aria-pressed="false">方案四</button>
+              <div class="composer-layout-option-row">
+                <button class="composer-layout-option is-active" type="button" data-composer-layout="one" aria-pressed="true">方案一</button>
+                <p>输入框右侧并列展示实时演绎与实时通话入口。</p>
+              </div>
+              <div class="composer-layout-option-row">
+                <button class="composer-layout-option" type="button" data-composer-layout="two" aria-pressed="false">方案二</button>
+                <p>实时演绎位于输入框左侧，实时通话移至顶部。</p>
+              </div>
+              <div class="composer-layout-option-row" hidden>
+                <button class="composer-layout-option" type="button" data-composer-layout="three" aria-pressed="false">方案三</button>
+              </div>
+              <div class="composer-layout-option-row">
+                <button class="composer-layout-option" type="button" data-composer-layout="four" aria-pressed="false">方案四</button>
+                <p>实时演绎整合进输入框左侧，实时通话保留右侧。</p>
+              </div>
             </div>
           </section>
         </section>
