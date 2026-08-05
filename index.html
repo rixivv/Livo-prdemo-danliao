@@ -802,6 +802,36 @@
 
         <section class="console-section console-control-panel" aria-labelledby="entryControlTitle">
           <h2 id="entryControlTitle">控制台</h2>
+          <section class="console-section composer-layout-console" aria-labelledby="composerLayoutControlTitle">
+            <div>
+              <span class="camera-preview-control-label">底部操作布局</span>
+              <strong id="composerLayoutControlTitle">展示方案</strong>
+              <p>切换实时演绎与通话入口的位置。</p>
+            </div>
+            <div class="composer-layout-options" role="group" aria-label="底部操作布局方案">
+              <div class="composer-layout-option-row">
+                <button class="composer-layout-option is-active" type="button" data-composer-layout="one" aria-pressed="true">
+                  <strong>方案一</strong>
+                  <span>输入框右侧并列展示实时演绎与实时通话入口。</span>
+                </button>
+              </div>
+              <div class="composer-layout-option-row">
+                <button class="composer-layout-option" type="button" data-composer-layout="two" aria-pressed="false">
+                  <strong>方案二</strong>
+                  <span>实时演绎位于输入框左侧，实时通话移至顶部。</span>
+                </button>
+              </div>
+              <div class="composer-layout-option-row" hidden>
+                <button class="composer-layout-option" type="button" data-composer-layout="three" aria-pressed="false">方案三</button>
+              </div>
+              <div class="composer-layout-option-row">
+                <button class="composer-layout-option" type="button" data-composer-layout="four" aria-pressed="false">
+                  <strong>方案四</strong>
+                  <span>实时演绎整合进输入框左侧，实时通话保留右侧。</span>
+                </button>
+              </div>
+            </div>
+          </section>
           <section class="console-section camera-preview-console" aria-labelledby="cameraPreviewControlTitle">
             <div>
               <span class="camera-preview-control-label">摄像头显示</span>
@@ -835,36 +865,6 @@
             >
               <span aria-hidden="true"></span>
             </button>
-          </section>
-          <section class="console-section composer-layout-console" aria-labelledby="composerLayoutControlTitle">
-            <div>
-              <span class="camera-preview-control-label">底部操作布局</span>
-              <strong id="composerLayoutControlTitle">展示方案</strong>
-              <p>切换实时演绎与通话入口的位置。</p>
-            </div>
-            <div class="composer-layout-options" role="group" aria-label="底部操作布局方案">
-              <div class="composer-layout-option-row">
-                <button class="composer-layout-option is-active" type="button" data-composer-layout="one" aria-pressed="true">
-                  <strong>方案一</strong>
-                  <span>输入框右侧并列展示实时演绎与实时通话入口。</span>
-                </button>
-              </div>
-              <div class="composer-layout-option-row">
-                <button class="composer-layout-option" type="button" data-composer-layout="two" aria-pressed="false">
-                  <strong>方案二</strong>
-                  <span>实时演绎位于输入框左侧，实时通话移至顶部。</span>
-                </button>
-              </div>
-              <div class="composer-layout-option-row" hidden>
-                <button class="composer-layout-option" type="button" data-composer-layout="three" aria-pressed="false">方案三</button>
-              </div>
-              <div class="composer-layout-option-row">
-                <button class="composer-layout-option" type="button" data-composer-layout="four" aria-pressed="false">
-                  <strong>方案四</strong>
-                  <span>实时演绎整合进输入框左侧，实时通话保留右侧。</span>
-                </button>
-              </div>
-            </div>
           </section>
         </section>
 
