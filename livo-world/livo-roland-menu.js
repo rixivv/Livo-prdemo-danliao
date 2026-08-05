@@ -14,6 +14,18 @@
   let restaurantPinTemplate = null;
   let restaurantPinHost = null;
 
+  function repairLocalImagePaths(root = document) {
+    const selector = 'img[src^="figma/tilia/"]';
+    const images = [
+      ...(root.matches?.(selector) ? [root] : []),
+      ...(root.querySelectorAll?.(selector) || [])
+    ];
+    images.forEach((image) => {
+      const source = image.getAttribute("src");
+      if (source?.startsWith("figma/tilia/")) image.src = `../../${source}`;
+    });
+  }
+
   function applyCharacterStates(root = document) {
     const selector = '[role="img"][aria-label*="："]';
     const pins = [
@@ -108,12 +120,15 @@
     event.stopPropagation();
   }, true);
 
+  repairLocalImagePaths();
   applyCharacterStates();
   ensureRestaurantRolandPin();
   new MutationObserver((records) => {
     records.forEach((record) => {
       record.addedNodes.forEach((node) => {
-        if (node.nodeType === Node.ELEMENT_NODE) applyCharacterStates(node);
+        if (node.nodeType !== Node.ELEMENT_NODE) return;
+        repairLocalImagePaths(node);
+        applyCharacterStates(node);
       });
     });
     ensureRestaurantRolandPin();

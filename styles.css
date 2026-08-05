@@ -383,9 +383,13 @@ img { display: block; }
 
 .composer-layout-options {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
   margin-top: 14px;
+}
+
+.composer-layout-option[hidden] {
+  display: none;
 }
 
 .composer-layout-option {
@@ -3468,6 +3472,7 @@ video.home-scene-with-roland {
   font-size: 12px;
   font-weight: 500;
   line-height: 17px;
+  white-space: nowrap;
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
 }
@@ -3520,6 +3525,17 @@ video.home-scene-with-roland {
   font-weight: 500;
 }
 
+.home-live-call-message.is-role.is-typewriting::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 13px;
+  margin-left: 2px;
+  background: rgba(16,21,25,.7);
+  vertical-align: -2px;
+  animation: home-typewriter-caret .7s steps(1) infinite;
+}
+
 .home-live-call-input {
   position: relative;
   width: 149px;
@@ -3541,6 +3557,10 @@ video.home-scene-with-roland {
   backdrop-filter: blur(20px);
 }
 
+.home-live-call-input.has-message input {
+  padding-right: 84px;
+}
+
 .home-live-call-input input::placeholder { color: rgba(255,255,255,.6); }
 
 .home-live-call-send {
@@ -3558,6 +3578,27 @@ video.home-scene-with-roland {
 
 .home-live-call-send img { width: 18px; height: 18px; filter: brightness(0); }
 .home-live-call-send:disabled { opacity: 0; pointer-events: none; transform: scale(.82); }
+
+.home-live-call-state {
+  position: absolute;
+  top: 9px;
+  right: 50px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.16);
+}
+
+.home-live-call-state[hidden] {
+  display: none;
+}
+
+.home-live-call-state img {
+  width: 11px;
+  height: 11px;
+}
 
 .home-live-call.is-typing .home-live-call-actions { gap: 0; }
 .home-live-call.is-typing .home-live-call-input { width: 351px; }
@@ -3886,7 +3927,6 @@ video.home-scene-with-roland {
   flex: 0 0 34px;
   align-items: center;
   justify-content: center;
-  border-right: .5px solid rgba(255,255,255,.42);
 }
 
 .home-inspiration-edit img {

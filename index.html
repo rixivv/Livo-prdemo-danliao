@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>活着的数字生命 · 实时演绎与离开实验版</title>
     <link rel="preload" as="image" href="./assets/intro-bg.webp" type="image/webp" fetchpriority="high" />
-    <link rel="stylesheet" href="./styles.css?v=20260805-15" />
+    <link rel="stylesheet" href="./styles.css?v=20260805-17" />
   </head>
   <body>
     <main class="stage">
@@ -298,6 +298,9 @@
                 </button>
                 <form class="home-live-call-input" id="homeLiveCallForm" aria-label="实时对话文字输入">
                   <input id="homeLiveCallInput" type="text" maxlength="300" placeholder="和罗兰开始冒险" aria-label="给罗兰发送消息" />
+                  <button class="home-live-call-state" id="homeLiveCallState" type="button" aria-label="插入括号内容" hidden>
+                    <img src="./assets/home-state-brackets.svg" alt="" />
+                  </button>
                   <button class="home-live-call-send" id="homeLiveCallSend" type="submit" aria-label="发送消息" disabled>
                     <img src="./assets/send-arrow-figma.svg" alt="" />
                   </button>
@@ -842,7 +845,7 @@
             <div class="composer-layout-options" role="group" aria-label="底部操作布局方案">
               <button class="composer-layout-option is-active" type="button" data-composer-layout="one" aria-pressed="true">方案一</button>
               <button class="composer-layout-option" type="button" data-composer-layout="two" aria-pressed="false">方案二</button>
-              <button class="composer-layout-option" type="button" data-composer-layout="three" aria-pressed="false">方案三</button>
+              <button class="composer-layout-option" type="button" data-composer-layout="three" aria-pressed="false" hidden>方案三</button>
               <button class="composer-layout-option" type="button" data-composer-layout="four" aria-pressed="false">方案四</button>
             </div>
           </section>
@@ -850,6 +853,6 @@
 
       </aside>
     </main>
-  <script src="./script.js?v=20260805-4"></script>
+  <script src="./script.js?v=20260805-5"></script>
   </body>
 </html>

@@ -32,6 +32,7 @@ const homeLiveCallMessages = document.querySelector("#homeLiveCallMessages");
 const homeLiveCallStatus = document.querySelector("#homeLiveCallStatus");
 const homeLiveCallForm = document.querySelector("#homeLiveCallForm");
 const homeLiveCallInput = document.querySelector("#homeLiveCallInput");
+const homeLiveCallState = document.querySelector("#homeLiveCallState");
 const homeLiveCallSend = document.querySelector("#homeLiveCallSend");
 const homeLiveCallEnd = document.querySelector("#homeLiveCallEnd");
 const homeLiveScene = document.querySelector("#homeLiveScene");
@@ -753,6 +754,7 @@ let homeCameraDragState;
 let homeComposerMode = "chat";
 let homeLiveSceneTypewriterTimer;
 let homeLiveScenePerformanceTimer;
+let homeLiveCallTypewriterTimer;
 const awayEchoes = [
   "这里空空荡荡，没有人回应",
   "安静得只剩下风声",
@@ -905,6 +907,14 @@ function syncLiveSceneEntrySelection() {
   }
 }
 
+function syncHomeLiveCallInputState() {
+  if (!homeLiveCallInput) return;
+  const hasMessage = Boolean(homeLiveCallInput.value.trim());
+  homeLiveCallForm?.classList.toggle("has-message", hasMessage);
+  if (homeLiveCallSend) homeLiveCallSend.disabled = !hasMessage;
+  if (homeLiveCallState) homeLiveCallState.hidden = !hasMessage;
+}
+
 function appendHomeAwayMessage(type, text) {
   if (!homeAwayMessages) return;
   const message = document.createElement("div");
@@ -975,12 +985,32 @@ function appendHomeLiveCallMessage(kind, text) {
   row.className = `home-live-call-message-row is-${kind}`;
   const bubble = document.createElement("p");
   bubble.className = `home-live-call-message is-${kind}`;
-  bubble.textContent = text;
+  const useTypewriter = kind === "role";
+  bubble.textContent = useTypewriter ? "" : text;
   row.appendChild(bubble);
   homeLiveCallMessages.appendChild(row);
   while (homeLiveCallMessages.children.length > 2) {
     homeLiveCallMessages.firstElementChild?.remove();
   }
+  if (!useTypewriter) return row;
+  window.clearTimeout(homeLiveCallTypewriterTimer);
+  bubble.classList.add("is-typewriting");
+  let characterIndex = 0;
+  const typeNextCharacter = () => {
+    characterIndex += 1;
+    bubble.textContent = text.slice(0, characterIndex);
+    if (characterIndex >= text.length) {
+      bubble.classList.remove("is-typewriting");
+      return;
+    }
+    const currentCharacter = text[characterIndex - 1];
+    homeLiveCallTypewriterTimer = window.setTimeout(
+      typeNextCharacter,
+      /[，。！？；…]/.test(currentCharacter) ? 150 : 55
+    );
+  };
+  homeLiveCallTypewriterTimer = window.setTimeout(typeNextCharacter, 180);
+  return row;
 }
 
 function advanceHomeStory(button) {
@@ -1002,7 +1032,11 @@ function advanceHomeStory(button) {
 async function startHomeLiveCall() {
   if (homeComposerMode === "scene") stopHomeLiveScene();
   window.clearTimeout(lifeStreamTimer);
-  rolandMicroexpressionVideo?.pause();
+  if (liveSceneEntrySelected && !homeScreen?.classList.contains("role-away")) {
+    rolandMicroexpressionVideo?.play().catch(() => {});
+  } else {
+    rolandMicroexpressionVideo?.pause();
+  }
   rolandReturnVideo?.pause();
   rolandDepartureVideo?.pause();
   rolandDigitalHumanVideo?.pause();
@@ -1012,7 +1046,7 @@ async function startHomeLiveCall() {
   if (homeLiveCallMessages) homeLiveCallMessages.replaceChildren();
   homeLiveCall?.classList.remove("is-typing");
   if (homeLiveCallInput) homeLiveCallInput.value = "";
-  if (homeLiveCallSend) homeLiveCallSend.disabled = true;
+  syncHomeLiveCallInputState();
   if (!homeVoiceActive) await startHomeVoiceInput();
   if (!homeCameraActive) await startHomeCamera();
 }
@@ -1696,7 +1730,19 @@ homeLiveCallInput?.addEventListener("focus", () => {
   homeLiveCall?.classList.add("is-typing");
 });
 homeLiveCallInput?.addEventListener("input", () => {
-  if (homeLiveCallSend) homeLiveCallSend.disabled = !homeLiveCallInput.value.trim();
+  syncHomeLiveCallInputState();
+});
+homeLiveCallState?.addEventListener("click", () => {
+  if (!homeLiveCallInput || homeLiveCallInput.disabled) return;
+  const start = homeLiveCallInput.selectionStart ?? homeLiveCallInput.value.length;
+  const end = homeLiveCallInput.selectionEnd ?? start;
+  const selectedText = homeLiveCallInput.value.slice(start, end);
+  const insertion = `（${selectedText}）`;
+  homeLiveCallInput.setRangeText(insertion, start, end, "end");
+  const caretPosition = selectedText ? start + insertion.length : start + 1;
+  homeLiveCallInput.setSelectionRange(caretPosition, caretPosition);
+  homeLiveCallInput.dispatchEvent(new Event("input", { bubbles: true }));
+  homeLiveCallInput.focus();
 });
 homeLiveCallForm?.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -1706,7 +1752,7 @@ homeLiveCallForm?.addEventListener("submit", (event) => {
   homeChatInput.value = message;
   homeChatInput.dispatchEvent(new Event("input", { bubbles: true }));
   homeLiveCallInput.value = "";
-  if (homeLiveCallSend) homeLiveCallSend.disabled = true;
+  syncHomeLiveCallInputState();
   homeChatForm.requestSubmit();
 });
 document.addEventListener("pointerdown", (event) => {
