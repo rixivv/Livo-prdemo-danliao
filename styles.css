@@ -3260,9 +3260,19 @@ video.home-scene-with-roland {
   box-shadow: none;
 }
 
-.home-live-call-end,
 .home-live-scene-close {
   background: #ff6060;
+}
+
+.home-live-call-end {
+  border: 0;
+  background: rgba(255,255,255,.3);
+  box-shadow: none;
+}
+
+.home-live-call-end img {
+  width: 24px;
+  height: 24px;
 }
 
 .home-live-scene-close img {
