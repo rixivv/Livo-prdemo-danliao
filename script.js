@@ -34,6 +34,7 @@ const homeLiveCallForm = document.querySelector("#homeLiveCallForm");
 const homeLiveCallInput = document.querySelector("#homeLiveCallInput");
 const homeLiveCallSend = document.querySelector("#homeLiveCallSend");
 const homeLiveCallEnd = document.querySelector("#homeLiveCallEnd");
+const homeLiveCallCharacterVideo = document.querySelector("#homeLiveCallCharacterVideo");
 const homeLiveScene = document.querySelector("#homeLiveScene");
 const homeLiveSceneComposer = document.querySelector("#homeLiveSceneComposer");
 const homeLiveSceneForm = document.querySelector("#homeLiveSceneForm");
@@ -985,6 +986,10 @@ async function startHomeLiveCall() {
   rolandDepartureVideo?.pause();
   rolandDigitalHumanVideo?.pause();
   setHomeComposerMode("call");
+  if (homeLiveCallCharacterVideo) {
+    homeLiveCallCharacterVideo.currentTime = 0;
+    homeLiveCallCharacterVideo.play().catch(() => {});
+  }
   if (homeLiveCallStatus) homeLiveCallStatus.textContent = "罗兰正在听你讲…";
   if (homeLiveCallStatus) homeLiveCallStatus.hidden = false;
   if (homeLiveCallMessages) homeLiveCallMessages.replaceChildren();
@@ -998,6 +1003,10 @@ async function startHomeLiveCall() {
 function stopHomeLiveCall() {
   stopHomeVoiceInput();
   stopHomeCamera();
+  if (homeLiveCallCharacterVideo) {
+    homeLiveCallCharacterVideo.pause();
+    homeLiveCallCharacterVideo.currentTime = 0;
+  }
   homeLiveCall?.classList.remove("is-typing");
   if (homeLiveCallStatus) homeLiveCallStatus.hidden = false;
   setHomeComposerMode("chat");
