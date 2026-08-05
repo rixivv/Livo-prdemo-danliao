@@ -1,15 +1,4 @@
 (() => {
-  const ensureMapBase = () => {
-    if (document.querySelector("base")) return;
-    const base = document.createElement("base");
-    base.href = "../../";
-    document.head.prepend(base);
-  };
-  ensureMapBase();
-  new MutationObserver(ensureMapBase).observe(document.documentElement, {
-    childList: true,
-    subtree: true
-  });
   const legacyMapParams = new URLSearchParams(window.location.search);
   if (legacyMapParams.get("roland") === "restaurant" && window.location.hash !== "#roland=restaurant") {
     const cleanMapUrl = new URL(window.location.href);
@@ -18,7 +7,7 @@
     window.location.replace(cleanMapUrl.href);
     return;
   }
-  const ROLAND_FRAME_SRC = "figma/tilia/pin-frame-roland.svg";
+  const ROLAND_FRAME_SRC = "../../figma/tilia/pin-frame-roland.svg";
   const mapHashParams = new URLSearchParams(window.location.hash.slice(1));
   const rolandAtRestaurant = mapHashParams.get("roland") === "restaurant";
   let toastTimer = 0;
