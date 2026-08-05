@@ -383,7 +383,7 @@ img { display: block; }
 
 .composer-layout-options {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
   margin-top: 14px;
 }
@@ -2954,6 +2954,60 @@ video.home-scene-with-roland {
 .home-screen.composer-layout-two .home-composer-dock.live-scene-entry-hidden .home-adventure-input {
   flex-basis: 351px;
   width: 351px;
+}
+
+.home-screen.composer-layout-three .home-composer-dock {
+  gap: 16px;
+}
+
+.home-screen.composer-layout-three .home-adventure-input {
+  flex: 0 0 287px;
+  width: 287px;
+  padding-left: 44px;
+}
+
+.home-screen.composer-layout-three #homeLiveSceneButton {
+  position: absolute;
+  z-index: 2;
+  top: 4px;
+  left: 4px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border-radius: 12px;
+}
+
+.home-screen.composer-layout-three #homeLiveSceneButton.is-selected {
+  background: rgba(255, 218, 167, .08);
+  animation: home-layout-three-live-glow 1.8s ease-in-out infinite;
+}
+
+.home-screen.composer-layout-three #homeLiveCallButton {
+  display: grid;
+}
+
+.home-screen.composer-layout-three .home-composer-dock.live-scene-entry-hidden .home-adventure-input {
+  flex-basis: 287px;
+  width: 287px;
+  padding-left: 16px;
+}
+
+@keyframes home-layout-three-live-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(255, 218, 167, 0), inset 0 0 0 rgba(255, 218, 167, 0);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(255, 218, 167, .7), inset 0 0 12px rgba(255, 218, 167, .22);
+    filter: brightness(1.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-screen.composer-layout-three #homeLiveSceneButton.is-selected {
+    animation: none;
+    box-shadow: 0 0 14px rgba(255, 218, 167, .55);
+  }
 }
 
 .home-adventure-input {
