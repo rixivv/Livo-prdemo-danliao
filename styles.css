@@ -3271,8 +3271,9 @@ video.home-scene-with-roland {
 }
 
 .home-live-call-end img {
-  width: 24px;
-  height: 24px;
+  width: 19.3711px;
+  height: 19.3711px;
+  transform: rotate(45deg);
 }
 
 .home-live-scene-close img {
