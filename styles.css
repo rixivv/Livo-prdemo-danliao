@@ -3054,6 +3054,14 @@ video.home-scene-with-roland {
   transform: scale(1.04);
 }
 
+.home-call-background .home-mode-background-image {
+  left: 0;
+  width: 375px;
+  height: 812px;
+  filter: none;
+  transform: none;
+}
+
 .home-call-character {
   position: absolute;
   top: 95.75px;
