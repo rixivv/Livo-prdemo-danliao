@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>活着的数字生命 · 实时演绎与离开实验版</title>
     <link rel="preload" as="image" href="./assets/intro-bg.webp" type="image/webp" fetchpriority="high" />
-    <link rel="stylesheet" href="./styles.css?v=20260804-90" />
+    <link rel="stylesheet" href="./styles.css?v=20260805-1" />
   </head>
   <body>
     <main class="stage">
@@ -148,9 +148,14 @@
                 <img src="./assets/home-location.svg" alt="" />
                 <span>包厢</span>
               </button>
-              <button class="home-sound-button" type="button" aria-label="声音">
-                <img src="./assets/home-sound.svg" alt="" />
-              </button>
+              <div class="home-nav-actions">
+                <button class="home-sound-button" type="button" aria-label="声音">
+                  <img src="./assets/home-sound.svg" alt="" />
+                </button>
+                <button class="home-top-call-button" id="homeTopLiveCallButton" type="button" aria-label="开始数字人实时陪伴">
+                  <img src="./assets/home-call-top-figma.svg" alt="" />
+                </button>
+              </div>
             </div>
           </header>
 
@@ -814,10 +819,21 @@
               <span aria-hidden="true"></span>
             </button>
           </section>
+          <section class="console-section composer-layout-console" aria-labelledby="composerLayoutControlTitle">
+            <div>
+              <span class="camera-preview-control-label">底部操作布局</span>
+              <strong id="composerLayoutControlTitle">展示方案</strong>
+              <p>切换实时演绎与通话入口的位置。</p>
+            </div>
+            <div class="composer-layout-options" role="group" aria-label="底部操作布局方案">
+              <button class="composer-layout-option is-active" type="button" data-composer-layout="one" aria-pressed="true">方案一</button>
+              <button class="composer-layout-option" type="button" data-composer-layout="two" aria-pressed="false">方案二</button>
+            </div>
+          </section>
         </section>
 
       </aside>
     </main>
-  <script src="./script.js?v=20260804-91"></script>
+  <script src="./script.js?v=20260805-1"></script>
   </body>
 </html>

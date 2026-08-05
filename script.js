@@ -26,6 +26,7 @@ const homeChatState = document.querySelector("#homeChatState");
 const homeComposerDock = document.querySelector("#homeComposerDock");
 const homeLiveSceneButton = document.querySelector("#homeLiveSceneButton");
 const homeLiveCallButton = document.querySelector("#homeLiveCallButton");
+const homeTopLiveCallButton = document.querySelector("#homeTopLiveCallButton");
 const homeLiveCall = document.querySelector("#homeLiveCall");
 const homeLiveCallMessages = document.querySelector("#homeLiveCallMessages");
 const homeLiveCallStatus = document.querySelector("#homeLiveCallStatus");
@@ -56,6 +57,7 @@ const homeCameraPreview = document.querySelector("#homeCameraPreview");
 const homeCameraVideo = document.querySelector("#homeCameraVideo");
 const cameraPreviewVisibilityToggle = document.querySelector("#cameraPreviewVisibilityToggle");
 const liveSceneEntryVisibilityToggle = document.querySelector("#liveSceneEntryVisibilityToggle");
+const composerLayoutOptions = [...document.querySelectorAll("[data-composer-layout]")];
 const homeChatToast = document.querySelector("#homeChatToast");
 const homeProfileEntry = document.querySelector(".home-profile-entry");
 const homeMoodButton = document.querySelector(".home-mood-button");
@@ -746,6 +748,7 @@ let homeCameraActive = false;
 let homeCameraPreviewVisible = true;
 let liveSceneEntryVisible = true;
 let liveSceneEntrySelected = false;
+let composerLayout = "one";
 let homeCameraDragState;
 let homeComposerMode = "chat";
 let homeLiveSceneTypewriterTimer;
@@ -844,6 +847,16 @@ function syncLiveSceneEntryVisibility() {
   if (homeLiveSceneButton) homeLiveSceneButton.disabled = !liveSceneEntryVisible;
   liveSceneEntryVisibilityToggle?.classList.toggle("is-on", liveSceneEntryVisible);
   liveSceneEntryVisibilityToggle?.setAttribute("aria-checked", String(liveSceneEntryVisible));
+}
+
+function syncComposerLayout() {
+  const isLayoutTwo = composerLayout === "two";
+  homeScreen?.classList.toggle("composer-layout-two", isLayoutTwo);
+  composerLayoutOptions.forEach((button) => {
+    const selected = button.dataset.composerLayout === composerLayout;
+    button.classList.toggle("is-active", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
 }
 
 function syncLiveSceneEntrySelection() {
@@ -1649,6 +1662,7 @@ function getRolandReply(message) {
 
 homeChatInput?.addEventListener("input", resizeHomeChatInput);
 homeLiveCallButton?.addEventListener("click", startHomeLiveCall);
+homeTopLiveCallButton?.addEventListener("click", startHomeLiveCall);
 homeLiveCallEnd?.addEventListener("click", stopHomeLiveCall);
 homeLiveSceneButton?.addEventListener("click", () => {
   liveSceneEntrySelected = !liveSceneEntrySelected;
@@ -1753,6 +1767,13 @@ liveSceneEntryVisibilityToggle?.addEventListener("click", () => {
   syncLiveSceneEntryVisibility();
   showHomeChatToast(liveSceneEntryVisible ? "实时演绎入口已显示" : "实时演绎入口已隐藏");
 });
+composerLayoutOptions.forEach((button) => {
+  button.addEventListener("click", () => {
+    composerLayout = button.dataset.composerLayout === "two" ? "two" : "one";
+    syncComposerLayout();
+  });
+});
+syncComposerLayout();
 window.addEventListener("beforeunload", () => {
   stopHomeVoiceInput();
   stopHomeCamera();

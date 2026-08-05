@@ -356,6 +356,60 @@ img { display: block; }
   outline-offset: 3px;
 }
 
+.composer-layout-console {
+  margin-top: 22px;
+  padding: 16px 0 4px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.composer-layout-console > div:first-child {
+  min-width: 0;
+}
+
+.composer-layout-console strong {
+  display: block;
+  color: rgba(255,255,255,.9);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.composer-layout-console p {
+  margin: 3px 0 0;
+  color: rgba(255,255,255,.46);
+  font-size: 11px;
+  line-height: 17px;
+}
+
+.composer-layout-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.composer-layout-option {
+  height: 34px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 50px;
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.6);
+  font-size: 12px;
+  font-weight: 500;
+  transition: border-color .2s ease, background .2s ease, color .2s ease;
+}
+
+.composer-layout-option.is-active {
+  border-color: rgba(183,213,206,.58);
+  background: rgba(183,213,206,.22);
+  color: #fff;
+}
+
+.composer-layout-option:focus-visible {
+  outline: 2px solid rgba(183,213,206,.7);
+  outline-offset: 3px;
+}
+
 .departure-demo-trigger {
   border-color: rgba(178,180,226,.36);
   background: rgba(76,69,112,.16);
@@ -2292,6 +2346,39 @@ video.home-scene-with-roland {
   height: 28px;
 }
 
+.home-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.home-top-call-button {
+  display: none;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  transition: transform .16s ease;
+}
+
+.home-top-call-button img {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
+.home-top-call-button:active {
+  transform: scale(.94);
+}
+
+.home-screen.composer-layout-two .home-top-call-button {
+  display: grid;
+}
+
+.home-screen.composer-layout-two .home-nav-context {
+  top: 10px;
+  gap: 8px;
+}
+
 .home-sound-button {
   position: relative;
   border-radius: 50%;
@@ -2841,6 +2928,28 @@ video.home-scene-with-roland {
   top: auto;
   bottom: 50px;
   gap: 16px;
+}
+
+.home-screen.composer-layout-two .home-composer-dock {
+  gap: 16px;
+}
+
+.home-screen.composer-layout-two .home-adventure-input {
+  flex: 0 0 287px;
+  width: 287px;
+}
+
+.home-screen.composer-layout-two #homeLiveSceneButton {
+  order: -1;
+}
+
+.home-screen.composer-layout-two #homeLiveCallButton {
+  display: none;
+}
+
+.home-screen.composer-layout-two .home-composer-dock.live-scene-entry-hidden .home-adventure-input {
+  flex-basis: 351px;
+  width: 351px;
 }
 
 .home-adventure-input {
