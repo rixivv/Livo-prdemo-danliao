@@ -852,8 +852,10 @@ function syncLiveSceneEntryVisibility() {
 function syncComposerLayout() {
   const isLayoutTwo = composerLayout === "two";
   const isLayoutThree = composerLayout === "three";
+  const isLayoutFour = composerLayout === "four";
   homeScreen?.classList.toggle("composer-layout-two", isLayoutTwo);
   homeScreen?.classList.toggle("composer-layout-three", isLayoutThree);
+  homeScreen?.classList.toggle("composer-layout-four", isLayoutFour);
   composerLayoutOptions.forEach((button) => {
     const selected = button.dataset.composerLayout === composerLayout;
     button.classList.toggle("is-active", selected);
@@ -861,13 +863,17 @@ function syncComposerLayout() {
   });
   setHomeControlIcon(
     homeLiveCallButton,
-    isLayoutThree ? "./assets/composer-layout-three-call.svg" : "./assets/composer-live-scene.svg"
+    isLayoutFour
+      ? "./assets/composer-layout-four-call.svg"
+      : (isLayoutThree ? "./assets/composer-layout-three-call.svg" : "./assets/composer-live-scene.svg")
   );
   setHomeControlIcon(
     homeLiveSceneButton,
-    isLayoutThree
-      ? (liveSceneEntrySelected ? "./assets/composer-layout-three-scene-selected.svg" : "./assets/composer-layout-three-scene.svg")
-      : (liveSceneEntrySelected ? "./assets/composer-live-scene-selected.svg" : "./assets/composer-live-call.svg")
+    isLayoutFour
+      ? (liveSceneEntrySelected ? "./assets/composer-layout-four-scene-selected.svg" : "./assets/composer-layout-four-scene.svg")
+      : (isLayoutThree
+        ? (liveSceneEntrySelected ? "./assets/composer-layout-three-scene-selected.svg" : "./assets/composer-layout-three-scene.svg")
+        : (liveSceneEntrySelected ? "./assets/composer-live-scene-selected.svg" : "./assets/composer-live-call.svg"))
   );
 }
 
@@ -878,9 +884,11 @@ function syncLiveSceneEntrySelection() {
   homeLiveSceneButton?.setAttribute("aria-label", liveSceneEntrySelected ? "关闭实时演绎" : "开启实时演绎");
   setHomeControlIcon(
     homeLiveSceneButton,
-    composerLayout === "three"
-      ? (liveSceneEntrySelected ? "./assets/composer-layout-three-scene-selected.svg" : "./assets/composer-layout-three-scene.svg")
-      : (liveSceneEntrySelected ? "./assets/composer-live-scene-selected.svg" : "./assets/composer-live-call.svg")
+    composerLayout === "four"
+      ? (liveSceneEntrySelected ? "./assets/composer-layout-four-scene-selected.svg" : "./assets/composer-layout-four-scene.svg")
+      : (composerLayout === "three"
+        ? (liveSceneEntrySelected ? "./assets/composer-layout-three-scene-selected.svg" : "./assets/composer-layout-three-scene.svg")
+        : (liveSceneEntrySelected ? "./assets/composer-live-scene-selected.svg" : "./assets/composer-live-call.svg"))
   );
   if (liveSceneEntrySelected && !homeScreen?.classList.contains("role-away")) {
     rolandMicroexpressionVideo?.play().catch(() => {});
@@ -1784,7 +1792,7 @@ liveSceneEntryVisibilityToggle?.addEventListener("click", () => {
 composerLayoutOptions.forEach((button) => {
   button.addEventListener("click", () => {
     const requestedLayout = button.dataset.composerLayout;
-    composerLayout = ["one", "two", "three"].includes(requestedLayout) ? requestedLayout : "one";
+    composerLayout = ["one", "two", "three", "four"].includes(requestedLayout) ? requestedLayout : "one";
     syncComposerLayout();
   });
 });
