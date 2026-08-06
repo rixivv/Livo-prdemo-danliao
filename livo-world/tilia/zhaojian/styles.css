@@ -5497,25 +5497,44 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
   font:inherit;
   cursor:pointer;
 }
-.zhaojian-standalone .zhaojian-reflection-tab{
+.zhaojian-standalone .zhaojian-world-switch-tab{
   position:relative;
   width:52px;
   height:52px;
   flex:0 0 52px;
   border:0!important;
-  border-radius:35px;
-  background:rgba(255,255,255,.08);
-  box-shadow:inset 0 0 0 .25px #fff;
-  backdrop-filter:blur(50px);
-  -webkit-backdrop-filter:blur(50px);
+  background:transparent;
   display:flex;
   align-items:center;
   justify-content:center;
 }
-.zhaojian-standalone .zhaojian-reflection-tab img,
-.zhaojian-standalone .zhaojian-primary-tabs button img{
+.zhaojian-standalone .zhaojian-world-switch-bg{
+  position:absolute;
+  inset:0;
+  border:.5px solid #fff;
+  border-radius:35px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(50px);
+  -webkit-backdrop-filter:blur(50px);
+}
+.zhaojian-standalone .zhaojian-tab-icon{
+  position:relative;
   width:28px;
   height:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.zhaojian-standalone .zhaojian-world-switch-tab .zhaojian-tab-icon img{
+  width:21px;
+  height:20px;
+  display:block;
+}
+.zhaojian-standalone .zhaojian-primary-tabs button img{
+  width:20px;
+  height:20px;
+  opacity:.7;
+  object-fit:contain;
   display:block;
 }
 .zhaojian-standalone .zhaojian-primary-tabs{
@@ -5525,12 +5544,12 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
   padding:4px;
   display:flex;
   align-items:center;
-  border:0;
+  border:.5px solid #fff;
   border-radius:30px;
-  background:rgba(255,255,255,.1);
-  box-shadow:inset 0 0 0 .25px #fff;
-  backdrop-filter:blur(50px);
-  -webkit-backdrop-filter:blur(50px);
+  background:rgba(255,255,255,.05);
+  box-shadow:none;
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
 }
 .zhaojian-standalone .zhaojian-primary-tabs button{
   width:62px;
@@ -5543,6 +5562,9 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
 }
 .zhaojian-standalone .zhaojian-primary-tabs button.is-active{
   background:rgba(217,217,217,.1);
+}
+.zhaojian-standalone .zhaojian-primary-tabs button.is-active img{
+  opacity:1;
 }
 .zhaojian-standalone .toast{
   min-width:120px;
