@@ -5439,6 +5439,110 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
   width:27.228px;
   height:13px;
 }
+.zhaojian-standalone .zhaojian-top-navigation{
+  position:absolute;
+  top:53px;
+  left:0;
+  z-index:10001;
+  width:375px;
+  height:48px;
+  padding:10px 12px;
+  display:flex;
+  align-items:center;
+  gap:2px;
+  overflow:hidden;
+  pointer-events:none;
+}
+.zhaojian-standalone .zhaojian-top-brand{
+  width:74px;
+  height:28px;
+  object-fit:contain;
+  display:block;
+}
+.zhaojian-standalone .zhaojian-top-divider{
+  width:2px;
+  height:2px;
+  display:block;
+  flex:0 0 auto;
+}
+.zhaojian-standalone .zhaojian-top-navigation span{
+  font-family:"PingFang SC",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  font-size:14px;
+  font-weight:400;
+  line-height:22px;
+  color:rgba(255,255,255,.9);
+  text-shadow:0 0 4px rgba(0,0,0,.25);
+  white-space:nowrap;
+}
+.zhaojian-standalone .zhaojian-bottom-tabs{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:10002;
+  height:71px;
+  padding:0 0 19px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  gap:12px;
+  pointer-events:auto;
+}
+.zhaojian-standalone .zhaojian-bottom-tabs button{
+  appearance:none;
+  border:0;
+  padding:0;
+  margin:0;
+  color:inherit;
+  font:inherit;
+  cursor:pointer;
+}
+.zhaojian-standalone .zhaojian-reflection-tab{
+  position:relative;
+  width:52px;
+  height:52px;
+  flex:0 0 52px;
+  border:.25px solid #fff!important;
+  border-radius:35px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(50px);
+  -webkit-backdrop-filter:blur(50px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.zhaojian-standalone .zhaojian-reflection-tab img,
+.zhaojian-standalone .zhaojian-primary-tabs button img{
+  width:28px;
+  height:28px;
+  display:block;
+}
+.zhaojian-standalone .zhaojian-primary-tabs{
+  height:52px;
+  padding:4px;
+  display:flex;
+  align-items:center;
+  border:.25px solid #fff;
+  border-radius:30px;
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(50px);
+  -webkit-backdrop-filter:blur(50px);
+}
+.zhaojian-standalone .zhaojian-primary-tabs button{
+  width:62px;
+  height:44px;
+  border-radius:28.5px;
+  background:transparent;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.zhaojian-standalone .zhaojian-primary-tabs button.is-active{
+  background:rgba(217,217,217,.1);
+}
+.zhaojian-standalone .zhaojian-bottom-tabs button:active{
+  transform:scale(.96);
+}
 .zhaojian-standalone .phone-home-indicator{
   bottom:8px;
   background:#fff;
@@ -5446,17 +5550,17 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
   opacity:.9;
 }
 .zhaojian-standalone .destiny-voice-screen .dv-room{
-  top:70px;
+  top:101px;
   bottom:292px;
 }
 .zhaojian-standalone .destiny-voice-screen .dv-user-card{
   bottom:256px;
 }
 .zhaojian-standalone .destiny-voice-screen .dv-self-timeline{
-  bottom:82px;
+  bottom:142px;
 }
 .zhaojian-standalone .destiny-voice-screen .dv-self-cards{
-  bottom:16px;
+  bottom:87px;
 }
 @media (min-width:376px){
   .zhaojian-standalone body{

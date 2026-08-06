@@ -12,7 +12,7 @@
 @font-face{font-family:'Material Symbols Rounded';font-style:normal;font-weight:400;font-display:block;src:url(assets/fonts/material-symbols.ttf) format('truetype')}
 .material-symbols-rounded{font-family:'Material Symbols Rounded';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-smoothing:antialiased;font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24}
 </style>
-<link rel="stylesheet" href="styles.css?v=zhaojian-standalone-2">
+<link rel="stylesheet" href="styles.css?v=zhaojian-standalone-3">
 </head>
 <body>
 
@@ -902,6 +902,11 @@
           </div>
         </div>
         <div class="status-bar"><span class="sb-time">6:16</span><div class="sb-icons"><img src="../../../assets/home-cellular.svg" alt=""><img src="../../../assets/home-wifi.svg" alt=""><img src="../../../assets/home-battery.svg" alt=""></div></div>
+        <div class="zhaojian-top-navigation" aria-label="照见我">
+          <img class="zhaojian-top-brand" src="assets/zhaojian/top-brand.png" alt="蒂利亚之冬">
+          <img class="zhaojian-top-divider" src="assets/zhaojian/top-divider-dot.svg" alt="">
+          <span>照见我</span>
+        </div>
         <button type="button" class="dv-zhaojian-back" aria-label="返回" onclick="closeDestinyVoiceRoom()"><span class="material-symbols-rounded">arrow_back_ios_new</span></button>
         <div class="dv-zhaojian-title">照见</div>
         <div class="dv-mine-title">照见我</div>
@@ -942,6 +947,16 @@
             <em>说出此刻的真实</em>
           </button>
         </div>
+        <nav class="zhaojian-bottom-tabs" aria-label="底部导航">
+          <button class="zhaojian-reflection-tab" type="button" aria-label="照见" aria-current="page">
+            <img src="assets/zhaojian/tab-reflection.svg" alt="">
+          </button>
+          <div class="zhaojian-primary-tabs">
+            <button type="button" aria-label="世界地图" onclick="history.back()"><img src="assets/zhaojian/tab-map.svg" alt=""></button>
+            <button type="button" aria-label="消息"><img src="assets/zhaojian/tab-message.svg" alt=""></button>
+            <button class="is-active" type="button" aria-label="我的"><img src="assets/zhaojian/tab-mine-active.svg" alt=""></button>
+          </div>
+        </nav>
         <div class="my-heart-voice-layer" id="myHeartVoiceLayer" aria-hidden="true">
           <button type="button" class="my-heart-close-btn" onclick="closeMyHeartVoiceMode()" aria-label="关闭今日心声">
             <span class="material-symbols-rounded">close</span>
