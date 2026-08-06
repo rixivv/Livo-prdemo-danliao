@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Livo · 照见</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./ios-parity.css">
+</head>
+<body>
+  <main class="preview-shell">
+    <section class="phone" aria-label="Livo 照见页面">
+      <div class="space-bg" aria-hidden="true"><i></i><i></i><i></i></div>
+      <header class="topbar">
+        <div class="status"><b>6:16</b><span>▮▮▮　⌁　▰</span></div>
+        <button class="about-button" id="drawerOpen" type="button"><span>蒂利亚之冬</span><i></i><strong>关于我</strong></button>
+        <button class="menu-button" id="menuButton" type="button" aria-label="打开关于我"><span></span><span></span><span></span></button>
+      </header>
+
+      <div class="content" id="content">
+        <section class="constellation" aria-label="人物关系星图">
+          <div class="nebula"></div>
+          <div class="orbit orbit-outer"></div>
+          <div class="orbit orbit-inner"></div>
+          <p class="phrase phrase-a">他终于不再追问你的来处</p>
+          <p class="phrase phrase-b">你让那段沉默有了回声</p>
+          <div class="center-halo"><img src="./assets/avatar-you.png" alt="我的头像"></div>
+          <button class="role" data-role="罗兰" data-orbit="outer" data-angle="-90" data-duration="32" type="button"><img src="./assets/npc-1.png" alt="罗兰"></button>
+          <button class="role" data-role="散庭·姚" data-orbit="outer" data-angle="165" data-duration="21" type="button"><img src="./assets/avatar-santing.png" alt="散庭·姚"></button>
+          <button class="role" data-role="施塔恩" data-orbit="outer" data-angle="-5" data-duration="27" type="button"><img src="./assets/npc-3.png" alt="施塔恩"></button>
+          <button class="role" data-role="任轻义" data-orbit="inner" data-angle="105" data-duration="39" type="button"><img src="./assets/avatar-renqingyi.png" alt="任轻义"></button>
+
+          <div class="stats-arc"></div>
+          <button class="stat stat-aware" type="button"><img src="./assets/stat-aware.png" alt=""><span>对我了解加深 <b>12</b></span></button>
+          <div class="stat stat-affect"><span class="affect-icon">✦</span><span>对角色的影响 <b>8</b></span></div>
+          <div class="stat stat-echo"><img src="./assets/stat-echo.png" alt=""><span>世界回响 <b>3</b></span></div>
+        </section>
+
+        <section class="timeline" aria-label="照见时间线">
+          <div class="timeline-line"></div>
+          <div class="day"><i></i><span>第12天</span></div>
+          <article class="event" data-role="罗兰">
+            <img src="./assets/npc-1.png" alt="">
+            <div><p><b>罗兰</b> 对你的了解加深了 <em>new</em></p><span>你没有追问那封没有寄出的信，只把窗边的位置留给了他。</span></div>
+          </article>
+          <article class="event" data-role="任轻义">
+            <img src="./assets/avatar-you.png" alt="">
+            <div><p><b>你</b> 对任轻义产生了影响</p><span>他第一次在牌局结束前收起了筹码，答应替你保守那个秘密。</span></div>
+          </article>
+          <div class="day"><i></i><span>第11天</span></div>
+          <article class="event echo" data-role="散庭·姚">
+            <img src="./assets/avatar-santing.png" alt="">
+            <div><p><b>你</b> 对世界产生了影响 <small>⌄</small></p><span>茶室里多出一只空杯。后来每个雪夜，都有人把它重新斟满。</span></div>
+          </article>
+          <article class="event" data-role="施塔恩">
+            <img src="./assets/npc-3.png" alt="">
+            <div><p><b>施塔恩</b> 对你的了解加深了</p><span>他记住了你望向隘口时的神情，也没有拆穿你故作轻松的玩笑。</span></div>
+          </article>
+        </section>
+      </div>
+
+      <section class="sticky-summary" id="stickySummary" aria-hidden="true">
+        <div class="mini-roles">
+          <button data-role="罗兰"><img src="./assets/npc-1.png" alt="罗兰"></button>
+          <button data-role="散庭·姚"><img src="./assets/avatar-santing.png" alt="散庭·姚"></button>
+          <button data-role="施塔恩"><img src="./assets/npc-3.png" alt="施塔恩"></button>
+          <button data-role="任轻义"><img src="./assets/avatar-renqingyi.png" alt="任轻义"></button>
+        </div>
+        <div class="sticky-stats">
+          <button class="aware-trigger"><img src="./assets/stat-aware.png" alt=""><span>对我了解加深 12</span></button>
+          <div><span class="affect-icon">✦</span><span>对角色的影响 8</span></div>
+          <div><img src="./assets/stat-echo.png" alt=""><span>世界回响 3</span></div>
+        </div>
+      </section>
+
+      <nav class="bottom-bar" aria-label="主导航">
+        <a href="../map/index.html"><img src="./assets/tab-world.svg" alt=""><span>世界</span></a>
+        <a href="#"><img src="./assets/tab-message.svg" alt=""><span>消息</span></a>
+        <a class="active" href="#"><img src="./assets/tab-mirror.svg" alt=""><span>照见</span></a>
+      </nav>
+
+      <div class="drawer-mask" id="drawerMask"></div>
+      <aside class="drawer" id="drawer" aria-hidden="true">
+        <div class="drawer-handle"></div>
+        <header><div><h2>林默</h2><p>Livo ID: 12080616</p></div><button id="drawerClose" type="button">×</button></header>
+        <button><span>◉</span>任务中心<small>有待领取的奖励　›</small></button>
+        <button><span>◌</span>我的钱包<small>128 L币　›</small></button>
+        <div class="drawer-card">
+          <button><span>◇</span>意见与反馈<small>›</small></button>
+          <button><span>○</span>关于 Livo<small>›</small></button>
+          <button><span>⌘</span>设置<small>●　›</small></button>
+        </div>
+      </aside>
+
+      <section class="aware-overlay" id="awareOverlay" aria-hidden="true">
+        <button class="overlay-mask" data-dismiss-aware aria-label="关闭"></button>
+        <div class="aware-sheet">
+          <header><h2>对你的了解</h2><button data-dismiss-aware type="button">×</button></header>
+          <article><img src="./assets/npc-1.png" alt=""><div><p><b>罗兰</b> 对你的了解加深了</p><span>你没有追问那封没有寄出的信，只把窗边的位置留给了他。</span></div></article>
+          <article><img src="./assets/npc-3.png" alt=""><div><p><b>施塔恩</b> 对你的了解加深了</p><span>他记住了你望向隘口时的神情，也没有拆穿你故作轻松的玩笑。</span></div></article>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>
