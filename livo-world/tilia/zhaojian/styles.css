@@ -5502,9 +5502,10 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
   width:52px;
   height:52px;
   flex:0 0 52px;
-  border:.25px solid #fff!important;
+  border:0!important;
   border-radius:35px;
   background:rgba(255,255,255,.08);
+  box-shadow:inset 0 0 0 .25px #fff;
   backdrop-filter:blur(50px);
   -webkit-backdrop-filter:blur(50px);
   display:flex;
@@ -5518,13 +5519,16 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
   display:block;
 }
 .zhaojian-standalone .zhaojian-primary-tabs{
+  width:195px;
+  flex:0 0 195px;
   height:52px;
   padding:4px;
   display:flex;
   align-items:center;
-  border:.25px solid #fff;
+  border:0;
   border-radius:30px;
   background:rgba(255,255,255,.1);
+  box-shadow:inset 0 0 0 .25px #fff;
   backdrop-filter:blur(50px);
   -webkit-backdrop-filter:blur(50px);
 }
@@ -5539,9 +5543,6 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
 }
 .zhaojian-standalone .zhaojian-primary-tabs button.is-active{
   background:rgba(217,217,217,.1);
-}
-.zhaojian-standalone .zhaojian-bottom-tabs button:active{
-  transform:scale(.96);
 }
 .zhaojian-standalone .toast{
   min-width:120px;
