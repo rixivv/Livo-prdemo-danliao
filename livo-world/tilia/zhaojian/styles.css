@@ -5615,6 +5615,13 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
 .zhaojian-standalone .destiny-voice-screen .dv-self-cards{
   bottom:87px;
 }
+.zhaojian-standalone .destiny-voice-screen .dv-room,
+.zhaojian-standalone .destiny-voice-screen .dv-user-card,
+.zhaojian-standalone .destiny-voice-screen .dv-self-timeline,
+.zhaojian-standalone .destiny-voice-screen .dv-self-balls,
+.zhaojian-standalone .destiny-voice-screen .dv-self-cards{
+  transform:translateY(-30px);
+}
 @media (min-width:376px){
   .zhaojian-standalone body{
     display:grid;
