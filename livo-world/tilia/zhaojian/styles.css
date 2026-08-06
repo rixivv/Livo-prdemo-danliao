@@ -5382,7 +5382,6 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
   border-radius:0;
   box-shadow:none;
 }
-.zhaojian-standalone .destiny-voice-screen > .status-bar,
 .zhaojian-standalone .destiny-voice-screen .dv-zhaojian-back,
 .zhaojian-standalone .destiny-voice-screen .dv-zhaojian-title,
 .zhaojian-standalone .destiny-voice-screen .dv-mine-title,
@@ -5391,9 +5390,60 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
 .zhaojian-standalone .destiny-voice-screen .dv-settings-btn,
 .zhaojian-standalone .destiny-voice-screen .app2-mine-tabbar,
 .zhaojian-standalone .destiny-voice-screen .my-home-lite-tabbar,
-.zhaojian-standalone .destiny-voice-screen > .tab-bar,
-.zhaojian-standalone .phone-home-indicator{
+.zhaojian-standalone .destiny-voice-screen > .tab-bar{
   display:none!important;
+}
+.zhaojian-standalone .destiny-voice-screen > .status-bar{
+  height:53px;
+  padding:0;
+  z-index:10001;
+  pointer-events:none;
+}
+.zhaojian-standalone .destiny-voice-screen > .status-bar .sb-time{
+  position:absolute;
+  top:19px;
+  left:55.5px;
+  width:39px;
+  color:#fff;
+  font-family:"SF Pro Display",-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:17px;
+  font-weight:600;
+  line-height:normal;
+  text-align:center;
+}
+.zhaojian-standalone .destiny-voice-screen > .status-bar .sb-icons{
+  position:absolute;
+  inset:0;
+  display:block;
+}
+.zhaojian-standalone .destiny-voice-screen > .status-bar .sb-icons img{
+  position:absolute;
+  display:block;
+  object-fit:contain;
+}
+.zhaojian-standalone .destiny-voice-screen > .status-bar .sb-icons img:nth-child(1){
+  top:23.087px;
+  left:269.1px;
+  width:18.3px;
+  height:11.989px;
+}
+.zhaojian-standalone .destiny-voice-screen > .status-bar .sb-icons img:nth-child(2){
+  top:23.188px;
+  left:294.563px;
+  width:16.35px;
+  height:12.089px;
+}
+.zhaojian-standalone .destiny-voice-screen > .status-bar .sb-icons img:nth-child(3){
+  top:22.6px;
+  right:32.57px;
+  width:27.228px;
+  height:13px;
+}
+.zhaojian-standalone .phone-home-indicator{
+  bottom:8px;
+  background:#fff;
+  mix-blend-mode:normal;
+  opacity:.9;
 }
 .zhaojian-standalone .destiny-voice-screen .dv-room{
   top:70px;
