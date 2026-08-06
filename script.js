@@ -865,9 +865,7 @@ function syncComposerLayout() {
   });
   setHomeControlIcon(
     homeLiveCallButton,
-    isLayoutFour
-      ? "./assets/composer-layout-four-call.svg"
-      : (isLayoutThree ? "./assets/composer-layout-three-call.svg" : "./assets/composer-live-scene.svg")
+    "./assets/composer-live-companion-figma.svg"
   );
   setHomeControlIcon(
     homeLiveSceneButton,
