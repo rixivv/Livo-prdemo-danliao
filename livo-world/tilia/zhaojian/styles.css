@@ -5543,6 +5543,20 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
 .zhaojian-standalone .zhaojian-bottom-tabs button:active{
   transform:scale(.96);
 }
+.zhaojian-standalone .toast{
+  min-width:120px;
+  padding:8px 16px;
+  border-radius:12px;
+  background:rgba(0,0,0,.75);
+  color:#fff;
+  font-size:13px;
+  line-height:22px;
+  transform:translate(-50%,calc(-50% + 6px));
+  transition:opacity .2s ease,transform .2s ease;
+}
+.zhaojian-standalone .toast.show{
+  transform:translate(-50%,-50%);
+}
 .zhaojian-standalone .phone-home-indicator{
   bottom:8px;
   background:#fff;
