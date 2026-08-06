@@ -5566,6 +5566,22 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
 .zhaojian-standalone .zhaojian-primary-tabs button.is-active img{
   opacity:1;
 }
+.zhaojian-standalone .zhaojian-primary-tabs button:nth-child(1) .zhaojian-tab-icon img{
+  position:absolute;
+  left:4.92px;
+  top:4.65px;
+  width:18.574px;
+  height:18.625px;
+  opacity:1;
+}
+.zhaojian-standalone .zhaojian-primary-tabs button:nth-child(3) .zhaojian-tab-icon img{
+  position:absolute;
+  left:6.99px;
+  top:2.98px;
+  width:14.899px;
+  height:22.467px;
+  opacity:1;
+}
 .zhaojian-standalone .toast{
   min-width:120px;
   padding:8px 16px;
