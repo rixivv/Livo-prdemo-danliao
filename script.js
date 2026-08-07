@@ -1038,7 +1038,9 @@ function advanceHomeStory(button) {
   }, 900);
 }
 
-async function startHomeLiveCall() {
+let homeLiveCallTransitioning = false;
+
+function prepareHomeLiveCall() {
   if (homeComposerMode === "scene") stopHomeLiveScene();
   window.clearTimeout(lifeStreamTimer);
   if (liveSceneEntrySelected && !homeScreen?.classList.contains("role-away")) {
@@ -1056,8 +1058,37 @@ async function startHomeLiveCall() {
   homeLiveCall?.classList.remove("is-typing");
   if (homeLiveCallInput) homeLiveCallInput.value = "";
   syncHomeLiveCallInputState();
+}
+
+async function enableHomeLiveCallMedia() {
   if (!homeVoiceActive) await startHomeVoiceInput();
   if (!homeCameraActive) await startHomeCamera();
+}
+
+async function enterHomeLiveCall() {
+  prepareHomeLiveCall();
+  await enableHomeLiveCallMedia();
+}
+
+async function startHomeLiveCall() {
+  if (homeLiveCallTransitioning || homeComposerMode === "call") return;
+  homeLiveCallTransitioning = true;
+  homeLiveCallButton?.setAttribute("aria-busy", "true");
+  homeTopLiveCallButton?.setAttribute("aria-busy", "true");
+  try {
+    if (window.RolandWarpLoading) {
+      await window.RolandWarpLoading.start({
+        beforeReveal: prepareHomeLiveCall
+      });
+      await enableHomeLiveCallMedia();
+    } else {
+      await enterHomeLiveCall();
+    }
+  } finally {
+    homeLiveCallTransitioning = false;
+    homeLiveCallButton?.removeAttribute("aria-busy");
+    homeTopLiveCallButton?.removeAttribute("aria-busy");
+  }
 }
 
 function stopHomeLiveCall() {
