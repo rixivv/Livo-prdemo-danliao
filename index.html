@@ -815,7 +815,7 @@
             </div>
             <div class="composer-layout-options" role="group" aria-label="底部操作布局方案">
               <div class="composer-layout-option-row">
-                <button class="composer-layout-option is-active" type="button" data-composer-layout="one" aria-pressed="true">
+                <button class="composer-layout-option" type="button" data-composer-layout="one" aria-pressed="false">
                   <strong>方案一</strong>
                   <span>输入框右侧并列展示实时演绎与实时通话入口。</span>
                 </button>
@@ -830,8 +830,8 @@
                 <button class="composer-layout-option" type="button" data-composer-layout="three" aria-pressed="false">方案三</button>
               </div>
               <div class="composer-layout-option-row">
-                <button class="composer-layout-option" type="button" data-composer-layout="four" aria-pressed="false">
-                  <strong>方案四</strong>
+                <button class="composer-layout-option is-active" type="button" data-composer-layout="four" aria-pressed="true">
+                  <strong>方案三</strong>
                   <span>实时演绎整合进输入框左侧，实时通话保留右侧。</span>
                 </button>
               </div>
@@ -844,11 +844,11 @@
               <p>摄像头开启后，控制左下角预览小窗是否可见。</p>
             </div>
             <button
-              class="console-switch is-on"
+              class="console-switch"
               id="cameraPreviewVisibilityToggle"
               type="button"
               role="switch"
-              aria-checked="true"
+              aria-checked="false"
               aria-label="展示用户视频小窗"
             >
               <span aria-hidden="true"></span>
@@ -875,6 +875,6 @@
 
       </aside>
     </main>
-  <script src="./script.js?v=20260806-6"></script>
+  <script src="./script.js?v=20260807-1"></script>
   </body>
 </html>

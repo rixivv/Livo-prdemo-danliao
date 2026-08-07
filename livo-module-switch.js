@@ -30,4 +30,11 @@
   positionAside();
   window.addEventListener("resize",positionAside);
   new ResizeObserver(positionAside).observe(document.documentElement);
+  function keepAsideMounted(){
+    if(aside.isConnected)return;
+    document.body.appendChild(aside);
+    positionAside();
+  }
+  new MutationObserver(keepAsideMounted).observe(document.body,{childList:true});
+  [0,250,1000].forEach(delay=>window.setTimeout(keepAsideMounted,delay));
 })();

@@ -746,10 +746,10 @@ let homeCameraStream;
 let homeVoiceSubmitTimer;
 let homeVoiceActive = false;
 let homeCameraActive = false;
-let homeCameraPreviewVisible = true;
+let homeCameraPreviewVisible = false;
 let liveSceneEntryVisible = true;
 let liveSceneEntrySelected = false;
-let composerLayout = "one";
+let composerLayout = "four";
 let homeCameraDragState;
 let homeComposerMode = "chat";
 let homeLiveSceneTypewriterTimer;
@@ -875,6 +875,17 @@ function syncComposerLayout() {
         ? (liveSceneEntrySelected ? "./assets/composer-layout-three-scene-selected.svg" : "./assets/composer-layout-three-scene.svg")
         : (liveSceneEntrySelected ? "./assets/composer-live-scene-selected.svg" : "./assets/composer-live-call.svg"))
   );
+}
+
+function restoreChatModuleDefaults() {
+  composerLayout = "four";
+  homeCameraPreviewVisible = false;
+  liveSceneEntryVisible = true;
+  liveSceneEntrySelected = false;
+  syncComposerLayout();
+  syncHomeCameraPreviewVisibility();
+  syncLiveSceneEntryVisibility();
+  syncLiveSceneEntrySelection();
 }
 
 function syncLiveSceneEntrySelection() {
@@ -1840,7 +1851,8 @@ composerLayoutOptions.forEach((button) => {
     syncComposerLayout();
   });
 });
-syncComposerLayout();
+restoreChatModuleDefaults();
+window.addEventListener("pageshow", restoreChatModuleDefaults);
 window.addEventListener("beforeunload", () => {
   stopHomeVoiceInput();
   stopHomeCamera();
