@@ -1,5 +1,36 @@
 (function () {
   let hideTimer;
+  const rolandSelector = '[aria-label^="罗兰："], [data-livo-roland-link="true"]';
+
+  function prepareRolandAvatar() {
+    document.querySelectorAll(rolandSelector).forEach(function (avatar) {
+      avatar.dataset.livoRolandLink = "true";
+      avatar.style.pointerEvents = "auto";
+      avatar.style.cursor = "pointer";
+      avatar.setAttribute("role", "button");
+      avatar.setAttribute("tabindex", "0");
+      avatar.setAttribute("aria-label", "打开罗兰单聊");
+      avatar.setAttribute("title", "进入罗兰单聊");
+    });
+  }
+
+  function getRolandAvatar(target) {
+    return target instanceof Element
+      ? target.closest('[data-livo-roland-link="true"]')
+      : null;
+  }
+
+  function stopRolandMapGesture(event) {
+    if (!getRolandAvatar(event.target)) return;
+    event.stopImmediatePropagation();
+  }
+
+  function openRolandChat(event) {
+    if (!getRolandAvatar(event.target)) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    window.location.href = "../../../index.html?module=chat";
+  }
 
   function simplifyDemoChrome() {
     const versionSection = document.querySelector('[aria-label="演示版本"]');
@@ -17,8 +48,20 @@
   }
 
   simplifyDemoChrome();
+  prepareRolandAvatar();
   const chromeObserver = new MutationObserver(simplifyDemoChrome);
   chromeObserver.observe(document.documentElement, { childList: true, subtree: true });
+
+  const rolandObserver = new MutationObserver(prepareRolandAvatar);
+  rolandObserver.observe(document.documentElement, { childList: true, subtree: true });
+
+  document.addEventListener("pointerdown", stopRolandMapGesture, true);
+  document.addEventListener("touchstart", stopRolandMapGesture, true);
+  document.addEventListener("click", openRolandChat, true);
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    openRolandChat(event);
+  }, true);
 
   document.addEventListener("click", function (event) {
     const messageTab = event.target.closest('button[aria-label="消息"]');
