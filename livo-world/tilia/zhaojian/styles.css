@@ -5453,6 +5453,9 @@ button.world-echo-type.is-link:active{transform:scale(.96)}
   overflow:hidden;
   pointer-events:none;
 }
+.zhaojian-standalone .destiny-voice-screen:has(.my-personality-page.on) > .zhaojian-top-navigation{
+  display:none;
+}
 .zhaojian-standalone .zhaojian-top-brand{
   width:74px;
   height:28px;

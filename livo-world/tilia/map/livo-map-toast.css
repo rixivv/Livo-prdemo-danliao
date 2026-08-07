@@ -1,0 +1,32 @@
+#livo-map-download-toast {
+  position: fixed;
+  z-index: 2147483647;
+  min-width: 120px;
+  max-width: 327px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font: 400 13px/22px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+  text-align: center;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, calc(-50% + 6px)) scale(0.9);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#livo-map-download-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+[aria-label="演示版本"] button {
+  cursor: default;
+  pointer-events: none;
+}
+
+[aria-label="演示版本"] button svg,
+[aria-label="演示版本"] button + div {
+  display: none !important;
+}

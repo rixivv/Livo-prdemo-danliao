@@ -13,6 +13,7 @@
 .material-symbols-rounded{font-family:'Material Symbols Rounded';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-smoothing:antialiased;font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24}
 </style>
 <link rel="stylesheet" href="styles.css?v=zhaojian-standalone-8">
+<link rel="stylesheet" href="../../../livo-module-switch.css?v=20260807-3">
 </head>
 <body>
 
@@ -948,7 +949,7 @@
           </button>
         </div>
         <nav class="zhaojian-bottom-tabs" aria-label="底部导航">
-          <button class="zhaojian-world-switch-tab" type="button" aria-label="切换世界" onclick="showToast('下载APP体验完整功能')">
+          <button class="zhaojian-world-switch-tab" type="button" aria-label="切换世界" onclick="closeDestinyVoiceRoom();app2MessageOpen=false;setApp2FlowStep('worldSelect')">
             <span class="zhaojian-world-switch-bg" aria-hidden="true"></span>
             <span class="zhaojian-tab-icon"><img src="../../figma/tilia/tab-world-switch.svg" alt=""></span>
           </button>
@@ -1085,7 +1086,6 @@
         </div>
         <div class="my-personality-page" id="myPersonalityPage" aria-hidden="true">
           <div class="my-personality-aurora" aria-hidden="true"></div>
-          <div class="status-bar"><span class="sb-time">14:30</span><div class="sb-icons"><span class="material-symbols-rounded" style="font-size:16px">signal_cellular_alt</span><span class="material-symbols-rounded" style="font-size:16px">wifi</span><span class="material-symbols-rounded" style="font-size:16px">battery_full</span></div></div>
           <div class="my-personality-nav">
             <button type="button" class="my-personality-back" onclick="closeMyPersonalityPage()" aria-label="返回"><span class="material-symbols-rounded">arrow_back</span></button>
             <div class="my-personality-progress" id="myPersonalityProgress">我的人格</div>
@@ -36896,5 +36896,6 @@ setTimeout(()=>{
   }
 },0);
 </script>
+<script src="../../../livo-module-switch.js?v=20260807-3"></script>
 </body>
 </html>
