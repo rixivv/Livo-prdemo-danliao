@@ -3,7 +3,7 @@
   const current=path.includes("/zhaojian/")?"zhaojian":path.includes("/map/")?"world":"chat";
   const base=current==="chat"?".":"../../..";
   const items=[
-    {id:"chat",label:"单聊模块",description:"文字对话、实时对话数字人、实时演绎动画、离开",href:`${base}/index.html`},
+    {id:"chat",label:"单聊模块",description:"文字对话、实时对话数字人、实时演绎动画、离开",href:`${base}/index.html?module=chat`},
     {id:"world",label:"世界模块",description:"地图探索、世界动态、命运推演与世界背面",href:current==="chat"?"./livo-world/tilia/map/index.html":"../map/index.html"},
     {id:"zhaojian",label:"照见模块",description:"人格图谱、情绪地图、关系舞台与生活点滴",href:current==="chat"?"./livo-world/tilia/zhaojian/index.html":"../zhaojian/index.html"}
   ];

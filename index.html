@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      if (new URLSearchParams(location.search).get("module") !== "chat") {
+        location.replace("./livo-world/tilia/map/index.html");
+      }
+    </script>
     <title>活着的数字生命 · 实时演绎与离开实验版</title>
     <link rel="preload" as="image" href="./assets/intro-bg.webp" type="image/webp" fetchpriority="high" />
     <link rel="stylesheet" href="./styles.css?v=20260805-22" />
@@ -22,7 +27,7 @@
         <div class="report-eyebrow">demo演示</div>
         <h1>PR demo</h1>
         <nav class="demo-version-switch" aria-label="Demo 版本切换">
-          <a class="is-active" href="./index.html" aria-current="page">
+          <a class="is-active" href="./index.html?module=chat" aria-current="page">
             <small>单聊模块</small>
             <strong>文字对话、实时对话数字人、实时演绎动画、离开</strong>
           </a>
